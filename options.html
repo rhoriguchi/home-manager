@@ -864,6 +864,29 @@ directory.
 }
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/misc/dconf.nix#blob-path" target="_top">
                     &lt;home-manager/modules/misc/dconf.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-editorconfig.enable"></a><a class="term" href="options.html#opt-editorconfig.enable"><code class="option">editorconfig.enable</code></a></span></dt><dd><p>Whether to enable EditorConfig home configuration file.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/misc/editorconfig.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/misc/editorconfig.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-editorconfig.settings"></a><a class="term" href="options.html#opt-editorconfig.settings"><code class="option">editorconfig.settings</code></a></span></dt><dd><p>Configuration written to <code class="filename">$HOME/.editorconfig</code>.
+<code class="code">root = true</code> is automatically added to the file,
+it must not be added here.
+See <a class="link" href="https://editorconfig.org" target="_top">https://editorconfig.org</a> for documentation.
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of attribute set of INI atom (null, bool, int, float or string)</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        {
+        
+        }
+    </code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">{
+  "*" = {
+    charset = "utf-8";
+    end_of_line = "lf";
+    trim_trailing_whitespace = true;
+    insert_final_newline = true;
+    max_line_width = 78;
+    indent_style = "space";
+    indent_size = 4;
+  };
+};
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/misc/editorconfig.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/misc/editorconfig.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-fonts.fontconfig.enable"></a><a class="term" href="options.html#opt-fonts.fontconfig.enable"><code class="option">fonts.fontconfig.enable</code></a></span></dt><dd><p>Whether to enable fontconfig configuration. This will, for
 example, allow fontconfig to discover fonts and
 configurations installed through
@@ -2682,6 +2705,26 @@ The possible attributes are:
         ]
     </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/browserpass.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/browserpass.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.btop.enable"></a><a class="term" href="options.html#opt-programs.btop.enable"><code class="option">programs.btop.enable</code></a></span></dt><dd><p>Whether to enable btop.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/btop.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/btop.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.btop.package"></a><a class="term" href="options.html#opt-programs.btop.package"><code class="option">programs.btop.package</code></a></span></dt><dd><p>The btop package to use.</p><p><span class="emphasis"><em>Type:</em></span> package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">pkgs.btop</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/btop.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/btop.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.btop.extraConfig"></a><a class="term" href="options.html#opt-programs.btop.extraConfig"><code class="option">programs.btop.extraConfig</code></a></span></dt><dd><p>Extra lines added to the <code class="filename">btop.conf</code> file.
+</p><p><span class="emphasis"><em>Type:</em></span> strings concatenated with "\n"</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">""</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/btop.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/btop.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.btop.settings"></a><a class="term" href="options.html#opt-programs.btop.settings"><code class="option">programs.btop.settings</code></a></span></dt><dd><p>Options to add to <code class="filename">btop.conf</code> file.
+See <a class="link" href="https://github.com/aristocratos/btop#configurability" target="_top">https://github.com/aristocratos/btop#configurability</a>
+for options.
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of boolean or floating point number or signed integer or string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        {
+        
+        }
+    </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        {
+        color_theme = "Default"; theme_background = false; 
+        }
+    </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/btop.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/btop.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.chromium.enable"></a><a class="term" href="options.html#opt-programs.chromium.enable"><code class="option">programs.chromium.enable</code></a></span></dt><dd><p>Whether to enable Chromium.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/chromium.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/chromium.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.chromium.package"></a><a class="term" href="options.html#opt-programs.chromium.package"><code class="option">programs.chromium.package</code></a></span></dt><dd><p>The Chromium package to use.</p><p><span class="emphasis"><em>Type:</em></span> package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">pkgs.chromium</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/chromium.nix#blob-path" target="_top">
@@ -3486,7 +3529,7 @@ Set to <code class="literal">null</code> to let GnuPG decide what signing key
 to use depending on commit’s author.
 </p><p><span class="emphasis"><em>Type:</em></span> null or string</p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/git.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/git.nix&gt;
-                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.git.signing.signByDefault"></a><a class="term" href="options.html#opt-programs.git.signing.signByDefault"><code class="option">programs.git.signing.signByDefault</code></a></span></dt><dd><p>Whether commits should be signed by default.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/git.nix#blob-path" target="_top">
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.git.signing.signByDefault"></a><a class="term" href="options.html#opt-programs.git.signing.signByDefault"><code class="option">programs.git.signing.signByDefault</code></a></span></dt><dd><p>Whether commits and tags should be signed by default.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/git.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/git.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.git.userEmail"></a><a class="term" href="options.html#opt-programs.git.userEmail"><code class="option">programs.git.userEmail</code></a></span></dt><dd><p>Default user email to use.</p><p><span class="emphasis"><em>Type:</em></span> null or string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">null</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/git.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/git.nix&gt;
@@ -7555,7 +7598,7 @@ set nobackup
 Note: String values are deprecated, please use actual packages.
 </p><p><span class="emphasis"><em>Type:</em></span> list of string or package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         [
-        <em class="replaceable"><code>(build of vimplugin-vim-sensible-2022-04-11)</code></em> 
+        <em class="replaceable"><code>(build of vimplugin-vim-sensible-2022-08-26)</code></em> 
         ]
     </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">[ pkgs.vimPlugins.YankRing ]</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vim.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/vim.nix&gt;
@@ -10069,6 +10112,9 @@ background "#cccccc"
         
         ]
     </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/swayidle.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/services/swayidle.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.swayidle.systemdTarget"></a><a class="term" href="options.html#opt-services.swayidle.systemdTarget"><code class="option">services.swayidle.systemdTarget</code></a></span></dt><dd><p>Systemd target to bind to.
+</p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">"sway-session.target"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/swayidle.nix#blob-path" target="_top">
                     &lt;home-manager/modules/services/swayidle.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.swayidle.timeouts"></a><a class="term" href="options.html#opt-services.swayidle.timeouts"><code class="option">services.swayidle.timeouts</code></a></span></dt><dd><p>List of commands to run after idle timeout.</p><p><span class="emphasis"><em>Type:</em></span> list of submodule</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         [
