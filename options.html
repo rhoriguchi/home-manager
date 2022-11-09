@@ -7,6 +7,8 @@
         }
     </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/imapnotify.nix#blob-path" target="_top">
                     &lt;home-manager/modules/services/imapnotify.nix&gt;
+                </a></code></td></tr><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thunderbird.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/thunderbird.nix&gt;
                 </a></code></td></tr><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/offlineimap.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/offlineimap.nix&gt;
                 </a></code></td></tr><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/notmuch.nix#blob-path" target="_top">
@@ -783,6 +785,27 @@ Note, if set then the system default may still be accepted.
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-accounts.email.accounts._name_.smtp.tls.useStartTls"></a><a class="term" href="options.html#opt-accounts.email.accounts._name_.smtp.tls.useStartTls"><code class="option">accounts.email.accounts.&lt;name&gt;.smtp.tls.useStartTls</code></a></span></dt><dd><p>Whether to use STARTTLS.
 </p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix#blob-path" target="_top">
                     &lt;home-manager/modules/accounts/email.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-accounts.email.accounts._name_.thunderbird.enable"></a><a class="term" href="options.html#opt-accounts.email.accounts._name_.thunderbird.enable"><code class="option">accounts.email.accounts.&lt;name&gt;.thunderbird.enable</code></a></span></dt><dd><p>Whether to enable the Thunderbird mail client for this account.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thunderbird.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/thunderbird.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-accounts.email.accounts._name_.thunderbird.profiles"></a><a class="term" href="options.html#opt-accounts.email.accounts._name_.thunderbird.profiles"><code class="option">accounts.email.accounts.&lt;name&gt;.thunderbird.profiles</code></a></span></dt><dd><p>List of Thunderbird profiles for which this account should be
+enabled. If this list is empty (the default), this account will
+be enabled for all declared profiles.
+</p><p><span class="emphasis"><em>Type:</em></span> list of string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        [
+        
+        ]
+    </code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">[ "profile1" "profile2" ]
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thunderbird.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/thunderbird.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-accounts.email.accounts._name_.thunderbird.settings"></a><a class="term" href="options.html#opt-accounts.email.accounts._name_.thunderbird.settings"><code class="option">accounts.email.accounts.&lt;name&gt;.thunderbird.settings</code></a></span></dt><dd><p>Extra settings to add to this Thunderbird account configuration.
+The <code class="varname">id</code> given as argument is an automatically
+generated account identifier.
+</p><p><span class="emphasis"><em>Type:</em></span> function that evaluates to a(n) attribute set of (boolean or signed integer or string)</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">_: { }</code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">id: {
+  "mail.identity.id_${id}.protectSubject" = false;
+  "mail.identity.id_${id}.autoEncryptDrafts" = false;
+};
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thunderbird.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/thunderbird.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-accounts.email.accounts._name_.userName"></a><a class="term" href="options.html#opt-accounts.email.accounts._name_.userName"><code class="option">accounts.email.accounts.&lt;name&gt;.userName</code></a></span></dt><dd><p>The server username of this account. This will be used as
 the SMTP, IMAP, and JMAP user name.
 </p><p><span class="emphasis"><em>Type:</em></span> null or string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">null</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix#blob-path" target="_top">
@@ -3110,6 +3133,72 @@ previously existing bookmarks!
                     &lt;home-manager/modules/programs/firefox.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.path"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.path"><code class="option">programs.firefox.profiles.&lt;name&gt;.path</code></a></span></dt><dd><p>Profile path.</p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">"‹name›"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/firefox.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.search.default"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.search.default"><code class="option">programs.firefox.profiles.&lt;name&gt;.search.default</code></a></span></dt><dd><p>The default search engine used in the address bar and search bar.
+</p><p><span class="emphasis"><em>Type:</em></span> null or string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">null</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">"DuckDuckGo"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/firefox.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.search.engines"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.search.engines"><code class="option">programs.firefox.profiles.&lt;name&gt;.search.engines</code></a></span></dt><dd><p>Attribute set of search engine configurations. Engines
+that only have <code class="varname">metaData</code> specified will
+be treated as builtin to Firefox.
+</p><p>
+See <a class="link" href="https://searchfox.org/mozilla-central/rev/669329e284f8e8e2bb28090617192ca9b4ef3380/toolkit/components/search/SearchEngine.jsm#1138-1177" target="_top">SearchEngine.jsm</a>
+in Firefox's source for available options. We maintain a
+mapping to let you specify all options in the referenced
+link without underscores, but it may fall out of date with
+future options.
+</p><p>
+Note, <code class="varname">icon</code> is also a special option
+added by Home Manager to make it convenient to specify
+absolute icon paths.
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of attribute set of (JSON value)</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        {
+        
+        }
+    </code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">{
+  "Nix Packages" = {
+    urls = [{
+      template = "https://search.nixos.org/packages";
+      params = [
+        { name = "type"; value = "packages"; }
+        { name = "query"; value = "{searchTerms}"; }
+      ];
+    }];
+
+    icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+    definedAliases = [ "@np" ];
+  };
+
+  "NixOS Wiki" = {
+    urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
+    iconUpdateURL = "https://nixos.wiki/favicon.png";
+    updateInterval = 24 * 60 * 60 * 1000; # every day
+    definedAliases = [ "@nw" ];
+  };
+
+  "Bing".metaData.hidden = true;
+  "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+}
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/firefox.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.search.force"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.search.force"><code class="option">programs.firefox.profiles.&lt;name&gt;.search.force</code></a></span></dt><dd><p>Whether to force replace the existing search
+configuration. This is recommended since Firefox will
+replace the symlink for the search configuration on every
+launch, but note that you'll lose any existing
+configuration by enabling this.
+</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/firefox.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.search.order"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.search.order"><code class="option">programs.firefox.profiles.&lt;name&gt;.search.order</code></a></span></dt><dd><p>The order the search engines are listed in. Any engines
+that aren't included in this list will be listed after
+these in an unspecified order.
+</p><p><span class="emphasis"><em>Type:</em></span> list of string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        [
+        
+        ]
+    </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">
+        [
+        "DuckDuckGo" "Google" 
+        ]
+    </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/firefox.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.settings"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.settings"><code class="option">programs.firefox.profiles.&lt;name&gt;.settings</code></a></span></dt><dd><p>Attribute set of Firefox preferences.</p><p><span class="emphasis"><em>Type:</em></span> attribute set of (boolean or signed integer or string)</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
         {
         
@@ -4559,6 +4648,10 @@ in this option) to command strings or directly to build outputs.
                     &lt;home-manager/modules/programs/irssi.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.irssi.networks._name_.nick"></a><a class="term" href="options.html#opt-programs.irssi.networks._name_.nick"><code class="option">programs.irssi.networks.&lt;name&gt;.nick</code></a></span></dt><dd><p>Nickname in that network.</p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/irssi.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/irssi.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.irssi.networks._name_.saslExternal"></a><a class="term" href="options.html#opt-programs.irssi.networks._name_.saslExternal"><code class="option">programs.irssi.networks.&lt;name&gt;.saslExternal</code></a></span></dt><dd><p>Enable SASL external authentication. This requires setting a path in
+<a class="xref" href="options.html#opt-programs.irssi.networks._name_.server.ssl.certificateFile"><code class="option">programs.irssi.networks.&lt;name&gt;.server.ssl.certificateFile</code></a>.
+</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/irssi.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/irssi.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.irssi.networks._name_.server.address"></a><a class="term" href="options.html#opt-programs.irssi.networks._name_.server.address"><code class="option">programs.irssi.networks.&lt;name&gt;.server.address</code></a></span></dt><dd><p>Address of the chat server.</p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/irssi.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/irssi.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.irssi.networks._name_.server.autoConnect"></a><a class="term" href="options.html#opt-programs.irssi.networks._name_.server.autoConnect"><code class="option">programs.irssi.networks.&lt;name&gt;.server.autoConnect</code></a></span></dt><dd><p>Whether Irssi connects to the server on launch.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/irssi.nix#blob-path" target="_top">
@@ -4613,6 +4706,38 @@ variable.
                     &lt;home-manager/modules/programs/just.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.just.package"></a><a class="term" href="options.html#opt-programs.just.package"><code class="option">programs.just.package</code></a></span></dt><dd><p>Package providing the <span class="command"><strong>just</strong></span> tool.</p><p><span class="emphasis"><em>Type:</em></span> package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">pkgs.just</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/just.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/just.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.k9s.enable"></a><a class="term" href="options.html#opt-programs.k9s.enable"><code class="option">programs.k9s.enable</code></a></span></dt><dd><p>Whether to enable k9s - Kubernetes CLI To Manage Your Clusters In Style.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/k9s.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/k9s.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.k9s.package"></a><a class="term" href="options.html#opt-programs.k9s.package"><code class="option">programs.k9s.package</code></a></span></dt><dd><p></p><p><span class="emphasis"><em>Type:</em></span> package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">pkgs.k9s</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/k9s.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/k9s.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.k9s.settings"></a><a class="term" href="options.html#opt-programs.k9s.settings"><code class="option">programs.k9s.settings</code></a></span></dt><dd><p>Configuration written to
+<code class="filename">$XDG_CONFIG_HOME/k9s/config.yml</code>. See
+<a class="link" href="https://k9scli.io/topics/config/" target="_top">https://k9scli.io/topics/config/</a>
+for supported values.
+</p><p><span class="emphasis"><em>Type:</em></span> YAML value</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        {
+        
+        }
+    </code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">k9s = {
+  refreshRate = 2;
+};
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/k9s.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/k9s.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.k9s.skin"></a><a class="term" href="options.html#opt-programs.k9s.skin"><code class="option">programs.k9s.skin</code></a></span></dt><dd><p>Skin written to
+<code class="filename">$XDG_CONFIG_HOME/k9s/skin.yml</code>. See
+<a class="link" href="https://k9scli.io/topics/skins/" target="_top">https://k9scli.io/topics/skins/</a>
+for supported values.
+</p><p><span class="emphasis"><em>Type:</em></span> YAML value</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        {
+        
+        }
+    </code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">k9s = {
+  body = {
+    fgColor = "dodgerblue";
+  };
+};
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/k9s.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/k9s.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.kakoune.enable"></a><a class="term" href="options.html#opt-programs.kakoune.enable"><code class="option">programs.kakoune.enable</code></a></span></dt><dd><p>Whether to enable the kakoune text editor.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/kakoune.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/kakoune.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.kakoune.config"></a><a class="term" href="options.html#opt-programs.kakoune.config"><code class="option">programs.kakoune.config</code></a></span></dt><dd><p>kakoune configuration options.</p><p><span class="emphasis"><em>Type:</em></span> null or (submodule)</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
@@ -4933,8 +5058,7 @@ for more details.
                     &lt;home-manager/modules/programs/kodi.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.kodi.package"></a><a class="term" href="options.html#opt-programs.kodi.package"><code class="option">programs.kodi.package</code></a></span></dt><dd><p>The <code class="literal">kodi</code> package to use.
 Can be used to specify extensions.
-</p><p><span class="emphasis"><em>Type:</em></span> package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">pkgs.kodi</code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">{ pkgs.kodi.withPackages (exts: [ exts.pvr-iptvsimple ]) }
-</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/kodi.nix#blob-path" target="_top">
+</p><p><span class="emphasis"><em>Type:</em></span> package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">pkgs.kodi</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">pkgs.kodi.withPackages (exts: [ exts.pvr-iptvsimple ])</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/kodi.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/kodi.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.kodi.addonSettings"></a><a class="term" href="options.html#opt-programs.kodi.addonSettings"><code class="option">programs.kodi.addonSettings</code></a></span></dt><dd><p>Attribute set with the plugin namespace as toplevel key and the plugins
 settings as lower level key/value pairs.
@@ -6244,6 +6368,36 @@ def get_pass(service, cmd):
     return subprocess.check_output(cmd, )
 ''</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/offlineimap.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/offlineimap.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.oh-my-posh.enable"></a><a class="term" href="options.html#opt-programs.oh-my-posh.enable"><code class="option">programs.oh-my-posh.enable</code></a></span></dt><dd><p>Whether to enable oh-my-posh, a prompt theme engine for any shell.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/oh-my-posh.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/oh-my-posh.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.oh-my-posh.enableBashIntegration"></a><a class="term" href="options.html#opt-programs.oh-my-posh.enableBashIntegration"><code class="option">programs.oh-my-posh.enableBashIntegration</code></a></span></dt><dd><p>Whether to enable Bash integration.
+</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/oh-my-posh.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/oh-my-posh.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.oh-my-posh.enableFishIntegration"></a><a class="term" href="options.html#opt-programs.oh-my-posh.enableFishIntegration"><code class="option">programs.oh-my-posh.enableFishIntegration</code></a></span></dt><dd><p>Whether to enable Fish integration.
+</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/oh-my-posh.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/oh-my-posh.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.oh-my-posh.enableZshIntegration"></a><a class="term" href="options.html#opt-programs.oh-my-posh.enableZshIntegration"><code class="option">programs.oh-my-posh.enableZshIntegration</code></a></span></dt><dd><p>Whether to enable Zsh integration.
+</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/oh-my-posh.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/oh-my-posh.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.oh-my-posh.package"></a><a class="term" href="options.html#opt-programs.oh-my-posh.package"><code class="option">programs.oh-my-posh.package</code></a></span></dt><dd><p></p><p><span class="emphasis"><em>Type:</em></span> package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">pkgs.oh-my-posh</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/oh-my-posh.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/oh-my-posh.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.oh-my-posh.settings"></a><a class="term" href="options.html#opt-programs.oh-my-posh.settings"><code class="option">programs.oh-my-posh.settings</code></a></span></dt><dd><p>Configuration written to
+<code class="filename">$XDG_CONFIG_HOME/oh-my-posh/config.json</code>. See
+<a class="link" href="https://ohmyposh.dev/docs/configuration/overview" target="_top">https://ohmyposh.dev/docs/configuration/overview</a>
+for details. The <code class="literal">useTheme</code> option is ignored when this
+option is used.
+</p><p><span class="emphasis"><em>Type:</em></span> JSON value</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        {
+        
+        }
+    </code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile "${pkgs.oh-my-posh}/share/oh-my-posh/themes/space.omp.json"))</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/oh-my-posh.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/oh-my-posh.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.oh-my-posh.useTheme"></a><a class="term" href="options.html#opt-programs.oh-my-posh.useTheme"><code class="option">programs.oh-my-posh.useTheme</code></a></span></dt><dd><p>Use one of the official themes. This should be a name from this list:
+<a class="link" href="https://ohmyposh.dev/docs/themes" target="_top">https://ohmyposh.dev/docs/themes</a>. Because a theme
+is essentially a configuration file, this option is not used when a
+<code class="literal">configFile</code> is set.
+</p><p><span class="emphasis"><em>Type:</em></span> null or string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">null</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/oh-my-posh.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/oh-my-posh.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.opam.enable"></a><a class="term" href="options.html#opt-programs.opam.enable"><code class="option">programs.opam.enable</code></a></span></dt><dd><p>Whether to enable Opam.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/opam.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/opam.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.opam.enableBashIntegration"></a><a class="term" href="options.html#opt-programs.opam.enableBashIntegration"><code class="option">programs.opam.enableBashIntegration</code></a></span></dt><dd><p>Whether to enable Bash integration.
@@ -7603,6 +7757,43 @@ Requires a window manager that respects scroll hints.
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.texlive.extraPackages"></a><a class="term" href="options.html#opt-programs.texlive.extraPackages"><code class="option">programs.texlive.extraPackages</code></a></span></dt><dd><p>Extra packages available to TeX Live.</p><p><span class="emphasis"><em>Type:</em></span> unspecified value</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">"tpkgs: { inherit (tpkgs) collection-basic; }"</code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">tpkgs: { inherit (tpkgs) collection-fontsrecommended algorithms; }
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/texlive.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/texlive.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.thunderbird.enable"></a><a class="term" href="options.html#opt-programs.thunderbird.enable"><code class="option">programs.thunderbird.enable</code></a></span></dt><dd><p>Whether to enable Thunderbird.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thunderbird.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/thunderbird.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.thunderbird.package"></a><a class="term" href="options.html#opt-programs.thunderbird.package"><code class="option">programs.thunderbird.package</code></a></span></dt><dd><p>The Thunderbird package to use.</p><p><span class="emphasis"><em>Type:</em></span> package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">pkgs.thunderbird</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">pkgs.thunderbird-91</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thunderbird.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/thunderbird.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.thunderbird.profiles"></a><a class="term" href="options.html#opt-programs.thunderbird.profiles"><code class="option">programs.thunderbird.profiles</code></a></span></dt><dd><p></p><p><span class="emphasis"><em>Type:</em></span> attribute set of (submodule)</p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thunderbird.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/thunderbird.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.thunderbird.profiles._name_.isDefault"></a><a class="term" href="options.html#opt-programs.thunderbird.profiles._name_.isDefault"><code class="option">programs.thunderbird.profiles.&lt;name&gt;.isDefault</code></a></span></dt><dd><p>Whether this is a default profile. There must be exactly one
+default profile.
+</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thunderbird.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/thunderbird.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.thunderbird.profiles._name_.name"></a><a class="term" href="options.html#opt-programs.thunderbird.profiles._name_.name"><code class="option">programs.thunderbird.profiles.&lt;name&gt;.name</code></a></span></dt><dd><p>This profile's name.</p><p><span class="emphasis"><em>Type:</em></span> string <span class="emphasis"><em>(read only)</em></span></p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">"‹name›"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thunderbird.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/thunderbird.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.thunderbird.profiles._name_.settings"></a><a class="term" href="options.html#opt-programs.thunderbird.profiles._name_.settings"><code class="option">programs.thunderbird.profiles.&lt;name&gt;.settings</code></a></span></dt><dd><p>Preferences to add to this profile's
+<code class="filename">user.js</code>.
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of (boolean or signed integer or string)</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        {
+        
+        }
+    </code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">{
+  "mail.spellcheck.inline" = false;
+}
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thunderbird.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/thunderbird.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.thunderbird.profiles._name_.withExternalGnupg"></a><a class="term" href="options.html#opt-programs.thunderbird.profiles._name_.withExternalGnupg"><code class="option">programs.thunderbird.profiles.&lt;name&gt;.withExternalGnupg</code></a></span></dt><dd><p>Allow using external GPG keys with GPGME.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thunderbird.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/thunderbird.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.thunderbird.settings"></a><a class="term" href="options.html#opt-programs.thunderbird.settings"><code class="option">programs.thunderbird.settings</code></a></span></dt><dd><p>Attribute set of Thunderbird preferences to be added to
+all profiles.
+</p><p><span class="emphasis"><em>Type:</em></span> attribute set of (boolean or signed integer or string)</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        {
+        
+        }
+    </code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">{
+  "general.useragent.override" = "";
+  "privacy.donottrackheader.enabled" = true;
+}
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thunderbird.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/thunderbird.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.timidity.enable"></a><a class="term" href="options.html#opt-programs.timidity.enable"><code class="option">programs.timidity.enable</code></a></span></dt><dd><p>Whether to enable timidity, a software MIDI renderer.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/timidity.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/timidity.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.timidity.package"></a><a class="term" href="options.html#opt-programs.timidity.package"><code class="option">programs.timidity.package</code></a></span></dt><dd><p>The timidity package to use.</p><p><span class="emphasis"><em>Type:</em></span> package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">pkgs.timidity</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/timidity.nix#blob-path" target="_top">
@@ -7883,8 +8074,14 @@ manually set any options not listed above.
                     &lt;home-manager/modules/programs/vim.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.vscode.enable"></a><a class="term" href="options.html#opt-programs.vscode.enable"><code class="option">programs.vscode.enable</code></a></span></dt><dd><p>Whether to enable Visual Studio Code.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/vscode.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.vscode.enableExtensionUpdateCheck"></a><a class="term" href="options.html#opt-programs.vscode.enableExtensionUpdateCheck"><code class="option">programs.vscode.enableExtensionUpdateCheck</code></a></span></dt><dd><p>Whether to enable update notifications for extensions.
+</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/vscode.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.vscode.enableUpdateCheck"></a><a class="term" href="options.html#opt-programs.vscode.enableUpdateCheck"><code class="option">programs.vscode.enableUpdateCheck</code></a></span></dt><dd><p>Whether to enable update checks/notifications.
+</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/vscode.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.vscode.package"></a><a class="term" href="options.html#opt-programs.vscode.package"><code class="option">programs.vscode.package</code></a></span></dt><dd><p>Version of Visual Studio Code to install.
-</p><p><span class="emphasis"><em>Type:</em></span> package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal"><em class="replaceable"><code>(build of vscode-1.72.1)</code></em></code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">pkgs.vscodium</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix#blob-path" target="_top">
+</p><p><span class="emphasis"><em>Type:</em></span> package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal"><em class="replaceable"><code>(build of vscode-1.73.0)</code></em></code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">pkgs.vscodium</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/vscode.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.vscode.extensions"></a><a class="term" href="options.html#opt-programs.vscode.extensions"><code class="option">programs.vscode.extensions</code></a></span></dt><dd><p>The extensions Visual Studio Code should be started with.
 </p><p><span class="emphasis"><em>Type:</em></span> list of package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
@@ -7946,7 +8143,7 @@ or by Visual Studio Code.
         
         }
     </code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">{
-  "update.channel" = "none";
+  "files.autoSave" = "off";
   "[nix]"."editor.tabSize" = 2;
 }
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix#blob-path" target="_top">
@@ -7958,14 +8155,14 @@ or by Visual Studio Code.
         
         }
     </code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">{
-  "version": "2.0.0",
-  "tasks": [
+  version = "2.0.0";
+  tasks = [
     {
-      "type": "shell",
-      "label": "Hello task",
-      "command": "hello",
+      type = "shell";
+      label = "Hello task";
+      command = "hello";
     }
-  ]
+  ];
 }
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/vscode.nix&gt;
@@ -10364,7 +10561,7 @@ No effect if <code class="option">xautolock.enable</code> is false.
         ]
     </code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/screen-locker.nix#blob-path" target="_top">
                     &lt;home-manager/modules/services/screen-locker.nix&gt;
-                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.screen-locker.xss-lock.screensaverCycle"></a><a class="term" href="options.html#opt-services.screen-locker.xss-lock.screensaverCycle"><code class="option">services.screen-locker.xss-lock.screensaverCycle</code></a></span></dt><dd><p>X server's screensaver cycle value expresed as seconds.
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.screen-locker.xss-lock.screensaverCycle"></a><a class="term" href="options.html#opt-services.screen-locker.xss-lock.screensaverCycle"><code class="option">services.screen-locker.xss-lock.screensaverCycle</code></a></span></dt><dd><p>The X server's screensaver cycle value expressed as seconds.
 This will be used with <span class="command"><strong>xset</strong></span> to configure
 the cycle along with timeout.
 </p><p><span class="emphasis"><em>Type:</em></span> signed integer</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">600</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/screen-locker.nix#blob-path" target="_top">
@@ -11238,7 +11435,7 @@ The alternatives are
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-systemd.user.systemctlPath"></a><a class="term" href="options.html#opt-systemd.user.systemctlPath"><code class="option">systemd.user.systemctlPath</code></a></span></dt><dd><p>Absolute path to the <span class="command"><strong>systemctl</strong></span> tool. This
 option may need to be set if running Home Manager on a
 non-NixOS distribution.
-</p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">"\${pkgs.systemd}/bin/systemctl"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/systemd.nix#blob-path" target="_top">
+</p><p><span class="emphasis"><em>Type:</em></span> string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">"${pkgs.systemd}/bin/systemctl"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/systemd.nix#blob-path" target="_top">
                     &lt;home-manager/modules/systemd.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-systemd.user.targets"></a><a class="term" href="options.html#opt-systemd.user.targets"><code class="option">systemd.user.targets</code></a></span></dt><dd><p>Definition of systemd per-user target units. Attributes are
 merged recursively.
@@ -12315,6 +12512,23 @@ The generated file is read-only.
                     &lt;home-manager/modules/misc/xdg-user-dirs.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-xdg.userDirs.videos"></a><a class="term" href="options.html#opt-xdg.userDirs.videos"><code class="option">xdg.userDirs.videos</code></a></span></dt><dd><p>The Videos directory.</p><p><span class="emphasis"><em>Type:</em></span> string or (path) convertible to it</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">"${config.home.homeDirectory}/Videos"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/misc/xdg-user-dirs.nix#blob-path" target="_top">
                     &lt;home-manager/modules/misc/xdg-user-dirs.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-xfconf.settings"></a><a class="term" href="options.html#opt-xfconf.settings"><code class="option">xfconf.settings</code></a></span></dt><dd><p>Settings to write to the Xfconf configuration system.
+</p><p><span class="emphasis"><em>Type:</em></span> xfconf settings</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">
+        {
+        
+        }
+    </code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">{
+  xfce4-session = {
+    "startup/ssh-agent/enabled" = false;
+    "general/LockCommand" = "${pkgs.lightdm}/bin/dm-tool lock";
+  };
+  xfce4-desktop = {
+    "backdrop/screen0/monitorLVDS-1/workspace0/last-image" =
+      "${pkgs.nixos-artwork.wallpapers.stripes-logo.gnomeFilePath}";
+  };
+}
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/misc/xfconf.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/misc/xfconf.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-xresources.extraConfig"></a><a class="term" href="options.html#opt-xresources.extraConfig"><code class="option">xresources.extraConfig</code></a></span></dt><dd><p>Additional X server resources contents.
 If this and all other xresources options are
 <code class="code">null</code>, then this feature is disabled and no
