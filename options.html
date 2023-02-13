@@ -2255,33 +2255,6 @@ versions it should be an unwrapped Firefox package.</p><p><span class="emphasis"
 }
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/firefox.nix&gt;
-                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.extensions"></a><a class="term" href="options.html#opt-programs.firefox.extensions"><code class="option">programs.firefox.extensions</code></a></span></dt><dd><p>List of Firefox add-on packages to install. Some
-pre-packaged add-ons are accessible from NUR,
-<a class="link" href="https://github.com/nix-community/NUR" target="_top">https://github.com/nix-community/NUR</a>.
-Once you have NUR installed run
-
-</p><pre class="screen console">
-  <code class="prompt">$</code> <strong class="userinput"><code>nix-env -f '&lt;nixpkgs&gt;' -qaP -A nur.repos.rycee.firefox-addons</code></strong>
-</pre><p>
-
-to list the available Firefox add-ons.
-
-</p><p>
-
-Note that it is necessary to manually enable these
-extensions inside Firefox after the first installation.
-
-</p><p>
-
-Extensions listed here will only be available in Firefox
-profiles managed through the
-<a class="xref" href="options.html#opt-programs.firefox.profiles"><code class="option">programs.firefox.profiles</code></a>
-option. This is due to recent changes in the way Firefox
-handles extension side-loading.</p><p><span class="emphasis"><em>Type:</em></span> list of package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">[ ]</code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">with pkgs.nur.repos.rycee.firefox-addons; [
-  privacy-badger
-]
-</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix#blob-path" target="_top">
-                    &lt;home-manager/modules/programs/firefox.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles"></a><a class="term" href="options.html#opt-programs.firefox.profiles"><code class="option">programs.firefox.profiles</code></a></span></dt><dd><p>Attribute set of Firefox profiles.</p><p><span class="emphasis"><em>Type:</em></span> attribute set of (submodule)</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">{ }</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/firefox.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.bookmarks"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.bookmarks"><code class="option">programs.firefox.profiles.&lt;name&gt;.bookmarks</code></a></span></dt><dd><p>Preloaded bookmarks. Note, this may silently overwrite any
@@ -2308,6 +2281,25 @@ previously existing bookmarks!</p><p><span class="emphasis"><em>Type:</em></span
       }
     ];
   }
+]
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/firefox.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.extensions"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.extensions"><code class="option">programs.firefox.profiles.&lt;name&gt;.extensions</code></a></span></dt><dd><p>List of Firefox add-on packages to install for this profile.
+Some pre-packaged add-ons are accessible from NUR,
+<a class="link" href="https://github.com/nix-community/NUR" target="_top">https://github.com/nix-community/NUR</a>.
+Once you have NUR installed run
+
+</p><pre class="screen console">
+  <code class="prompt">$</code> <strong class="userinput"><code>nix-env -f '&lt;nixpkgs&gt;' -qaP -A nur.repos.rycee.firefox-addons</code></strong>
+</pre><p>
+
+to list the available Firefox add-ons.
+
+</p><p>
+
+Note that it is necessary to manually enable these extensions
+inside Firefox after the first installation.</p><p><span class="emphasis"><em>Type:</em></span> list of package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">[ ]</code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">with pkgs.nur.repos.rycee.firefox-addons; [
+  privacy-badger
 ]
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/firefox.nix&gt;
@@ -2374,13 +2366,21 @@ these in an unspecified order.</p><p><span class="emphasis"><em>Type:</em></span
   "Google"
 ]</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/firefox.nix&gt;
-                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.settings"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.settings"><code class="option">programs.firefox.profiles.&lt;name&gt;.settings</code></a></span></dt><dd><p>Attribute set of Firefox preferences.</p><p><span class="emphasis"><em>Type:</em></span> attribute set of (boolean or signed integer or string)</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">{
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.settings"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.settings"><code class="option">programs.firefox.profiles.&lt;name&gt;.settings</code></a></span></dt><dd><p>Attribute set of Firefox preferences.
+
+Firefox only supports int, bool, and string types for
+preferences, but home-manager will automatically
+convert all other JSON-compatible values into strings.</p><p><span class="emphasis"><em>Type:</em></span> attribute set of (Firefox preference (int, bool, string, and also attrs, list, float as a JSON string))</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">{
   "browser.startup.homepage" = "https://nixos.org";
   "browser.search.region" = "GB";
   "browser.search.isUS" = false;
   "distribution.searchplugins.defaultLocale" = "en-GB";
   "general.useragent.locale" = "en-GB";
   "browser.bookmarks.showMobileBookmarks" = true;
+  "browser.newtabpage.pinned" = [{
+    title = "NixOS";
+    url = "https://nixos.org";
+  }];
 }
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/firefox.nix&gt;
@@ -4493,6 +4493,10 @@ editor using the <code class="envar">EDITOR</code> environment variable.</p><p><
   set nobackup
 ''</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/neovim.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/neovim.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.neovim.extraLuaConfig"></a><a class="term" href="options.html#opt-programs.neovim.extraLuaConfig"><code class="option">programs.neovim.extraLuaConfig</code></a></span></dt><dd><p>Custom lua lines.</p><p><span class="emphasis"><em>Type:</em></span> strings concatenated with "\n"</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">""</code></p><p><span class="emphasis"><em>Example:</em></span> </p><pre class="programlisting">''
+  vim.opt.nobackup = true
+''</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/neovim.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/neovim.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.neovim.extraLuaPackages"></a><a class="term" href="options.html#opt-programs.neovim.extraLuaPackages"><code class="option">programs.neovim.extraLuaPackages</code></a></span></dt><dd><p>The extra Lua packages required for your plugins to work.
 This option accepts a function that takes a Lua package set as an argument,
 and selects the required Lua packages from this package set.
@@ -6066,6 +6070,8 @@ input.</p><p><span class="emphasis"><em>Type:</em></span> unsigned integer, mean
                     &lt;home-manager/modules/programs/tmux.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.tmux.keyMode"></a><a class="term" href="options.html#opt-programs.tmux.keyMode"><code class="option">programs.tmux.keyMode</code></a></span></dt><dd><p>VI or Emacs style shortcuts.</p><p><span class="emphasis"><em>Type:</em></span> one of "emacs", "vi"</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">"emacs"</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">"vi"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/tmux.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/tmux.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.tmux.mouse"></a><a class="term" href="options.html#opt-programs.tmux.mouse"><code class="option">programs.tmux.mouse</code></a></span></dt><dd><p>Whether to enable mouse support.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/tmux.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/tmux.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.tmux.newSession"></a><a class="term" href="options.html#opt-programs.tmux.newSession"><code class="option">programs.tmux.newSession</code></a></span></dt><dd><p>Automatically spawn a session if trying to attach and none
 are running.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/tmux.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/tmux.nix&gt;
@@ -6215,13 +6221,20 @@ manually set any options not listed above.</p><p><span class="emphasis"><em>Type
 }
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vim.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/vim.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.vim-vint.enable"></a><a class="term" href="options.html#opt-programs.vim-vint.enable"><code class="option">programs.vim-vint.enable</code></a></span></dt><dd><p>Whether to enable the Vint linter for Vimscript.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vim-vint.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/vim-vint.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.vim-vint.package"></a><a class="term" href="options.html#opt-programs.vim-vint.package"><code class="option">programs.vim-vint.package</code></a></span></dt><dd><p>The vim-vint package to use.</p><p><span class="emphasis"><em>Type:</em></span> package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">pkgs.vim-vint</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vim-vint.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/vim-vint.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.vim-vint.settings"></a><a class="term" href="options.html#opt-programs.vim-vint.settings"><code class="option">programs.vim-vint.settings</code></a></span></dt><dd><p>Configuration written to
+<code class="filename">$XDG_CONFIG_HOME/.vintrc.yaml</code></p><p><span class="emphasis"><em>Type:</em></span> YAML value</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">{ }</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vim-vint.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/programs/vim-vint.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.vscode.enable"></a><a class="term" href="options.html#opt-programs.vscode.enable"><code class="option">programs.vscode.enable</code></a></span></dt><dd><p>Whether to enable Visual Studio Code.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/vscode.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.vscode.enableExtensionUpdateCheck"></a><a class="term" href="options.html#opt-programs.vscode.enableExtensionUpdateCheck"><code class="option">programs.vscode.enableExtensionUpdateCheck</code></a></span></dt><dd><p>Whether to enable update notifications for extensions.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/vscode.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.vscode.enableUpdateCheck"></a><a class="term" href="options.html#opt-programs.vscode.enableUpdateCheck"><code class="option">programs.vscode.enableUpdateCheck</code></a></span></dt><dd><p>Whether to enable update checks/notifications.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/vscode.nix&gt;
-                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.vscode.package"></a><a class="term" href="options.html#opt-programs.vscode.package"><code class="option">programs.vscode.package</code></a></span></dt><dd><p>Version of Visual Studio Code to install.</p><p><span class="emphasis"><em>Type:</em></span> package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">&lt;derivation vscode-1.74.3&gt;</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">pkgs.vscodium</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix#blob-path" target="_top">
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.vscode.package"></a><a class="term" href="options.html#opt-programs.vscode.package"><code class="option">programs.vscode.package</code></a></span></dt><dd><p>Version of Visual Studio Code to install.</p><p><span class="emphasis"><em>Type:</em></span> package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">pkgs.vscode</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">pkgs.vscodium</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/vscode.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.vscode.extensions"></a><a class="term" href="options.html#opt-programs.vscode.extensions"><code class="option">programs.vscode.extensions</code></a></span></dt><dd><p>The extensions Visual Studio Code should be started with.</p><p><span class="emphasis"><em>Type:</em></span> list of package</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">[ ]</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">[ pkgs.vscode-extensions.bbenoist.nix ]</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix#blob-path" target="_top">
                     &lt;home-manager/modules/programs/vscode.nix&gt;
@@ -6911,6 +6924,12 @@ but are substituted anywhere on a line.</p><p><span class="emphasis"><em>Type:</
       <a class="link" href="https://github.com/qt/qtstyleplugins" target="_top">qtstyleplugins</a>
     </p></dd></dl></div><p><span class="emphasis"><em>Type:</em></span> null or string</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">null</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">"adwaita-dark"</code></p><p><span class="emphasis"><em>Related packages:</em></span> </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><code class="literal">pkgs.adwaita-qt</code> (adwaita-qt-1.4.1): A style to bend Qt applications to look like they belong into GNOME Shell</p></li><li class="listitem"><p><code class="literal">pkgs.libsForQt5.qtstyleplugins</code> (qtstyleplugins-unstable-2017-03-11): Additional style plugins for Qt5, including BB10, GTK, Cleanlooks, Motif, Plastique</p></li></ul></div><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/misc/qt.nix#blob-path" target="_top">
                     &lt;home-manager/modules/misc/qt.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.autorandr.enable"></a><a class="term" href="options.html#opt-services.autorandr.enable"><code class="option">services.autorandr.enable</code></a></span></dt><dd><p>Whether to enable the Autorandr systemd service.
+This module is complementary to <code class="code">programs.autorandr</code> which handles the
+configuration (profiles).</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/autorandr.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/services/autorandr.nix&gt;
+                </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.autorandr.ignoreLid"></a><a class="term" href="options.html#opt-services.autorandr.ignoreLid"><code class="option">services.autorandr.ignoreLid</code></a></span></dt><dd><p>Treat outputs as connected even if their lids are closed.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/autorandr.nix#blob-path" target="_top">
+                    &lt;home-manager/modules/services/autorandr.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.barrier.client.enable"></a><a class="term" href="options.html#opt-services.barrier.client.enable"><code class="option">services.barrier.client.enable</code></a></span></dt><dd><p>Whether to enable Barrier Client daemon.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/barrier.nix#blob-path" target="_top">
                     &lt;home-manager/modules/services/barrier.nix&gt;
                 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.barrier.client.enableCrypto"></a><a class="term" href="options.html#opt-services.barrier.client.enableCrypto"><code class="option">services.barrier.client.enableCrypto</code></a></span></dt><dd><p>Whether to enable crypto (SSL) plugin.</p><p><span class="emphasis"><em>Type:</em></span> boolean</p><p><span class="emphasis"><em>Default:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Example:</em></span> <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/barrier.nix#blob-path" target="_top">
