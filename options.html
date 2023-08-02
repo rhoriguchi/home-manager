@@ -3945,8 +3945,9 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 &lt;home-manager/modules/programs/firefox.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.package"></a><a class="term" href="options.html#opt-programs.firefox.package"><code class="option">programs.firefox.package</code></a></span></dt><dd><p>The Firefox package to use. If state version ≥ 19.09 then
 this should be a wrapped Firefox package. For earlier state
-versions it should be an unwrapped Firefox package.</p><p><span class="emphasis"><em>Type:</em></span>
-package</p><p><span class="emphasis"><em>Default:</em></span>
+versions it should be an unwrapped Firefox package.
+Set to &lt;literal&gt;null&lt;/literal&gt; to disable installing Firefox.</p><p><span class="emphasis"><em>Type:</em></span>
+null or package</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">pkgs.firefox</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">pkgs.firefox.override {
   # See nixpkgs' firefox/wrapper.nix to check which options you can use
   cfg = {
@@ -4401,11 +4402,6 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gh.nix" target="_top">
 &lt;home-manager/modules/programs/gh.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.gh.enableGitCredentialHelper"></a><a class="term" href="options.html#opt-programs.gh.enableGitCredentialHelper"><code class="option">programs.gh.enableGitCredentialHelper</code></a></span></dt><dd><p>Whether to enable the gh git credential helper for github.com.</p><p><span class="emphasis"><em>Type:</em></span>
-boolean</p><p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">true</code></p><p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gh.nix" target="_top">
-&lt;home-manager/modules/programs/gh.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.gh.package"></a><a class="term" href="options.html#opt-programs.gh.package"><code class="option">programs.gh.package</code></a></span></dt><dd><p>Package providing <span class="command"><strong>gh</strong></span>.</p><p><span class="emphasis"><em>Type:</em></span>
 package</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">pkgs.gh</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gh.nix" target="_top">
@@ -4414,6 +4410,19 @@ package</p><p><span class="emphasis"><em>Default:</em></span>
 list of package</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">[ ]</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">[ pkgs.gh-eco ]</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gh.nix" target="_top">
+&lt;home-manager/modules/programs/gh.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.gh.gitCredentialHelper.enable"></a><a class="term" href="options.html#opt-programs.gh.gitCredentialHelper.enable"><code class="option">programs.gh.gitCredentialHelper.enable</code></a></span></dt><dd><p>Whether to enable the gh git credential helper.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gh.nix" target="_top">
+&lt;home-manager/modules/programs/gh.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.gh.gitCredentialHelper.hosts"></a><a class="term" href="options.html#opt-programs.gh.gitCredentialHelper.hosts"><code class="option">programs.gh.gitCredentialHelper.hosts</code></a></span></dt><dd><p>GitHub hosts to enable the gh git credential helper for</p><p><span class="emphasis"><em>Type:</em></span>
+list of string</p><p><span class="emphasis"><em>Default:</em></span></p><pre class="programlisting">[
+  "https://github.com"
+]
+</pre><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">[ "https://github.com" "https://github.example.com" ]
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gh.nix" target="_top">
 &lt;home-manager/modules/programs/gh.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.gh.settings"></a><a class="term" href="options.html#opt-programs.gh.settings"><code class="option">programs.gh.settings</code></a></span></dt><dd><p>Configuration written to <code class="filename">$XDG_CONFIG_HOME/gh/config.yml</code>.</p><p><span class="emphasis"><em>Type:</em></span>
 YAML value</p><p><span class="emphasis"><em>Default:</em></span>
@@ -4774,7 +4783,9 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gnome-terminal.nix" target="_top">
 &lt;home-manager/modules/programs/gnome-terminal.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.gnome-terminal.profile"></a><a class="term" href="options.html#opt-programs.gnome-terminal.profile"><code class="option">programs.gnome-terminal.profile</code></a></span></dt><dd><p>A set of Gnome Terminal profiles.</p><p><span class="emphasis"><em>Type:</em></span>
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.gnome-terminal.profile"></a><a class="term" href="options.html#opt-programs.gnome-terminal.profile"><code class="option">programs.gnome-terminal.profile</code></a></span></dt><dd><p>A set of Gnome Terminal profiles. Note, the name of a profile must be
+a UUID. You can generate one, for example, using <span class="command"><strong>uuidgen</strong></span>
+(from <code class="literal">util-linux</code>).</p><p><span class="emphasis"><em>Type:</em></span>
 attribute set of (submodule)</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gnome-terminal.nix" target="_top">
 &lt;home-manager/modules/programs/gnome-terminal.nix&gt;
@@ -4944,7 +4955,7 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gpg.nix" target="_top">
 &lt;home-manager/modules/programs/gpg.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.gpg.package"></a><a class="term" href="options.html#opt-programs.gpg.package"><code class="option">programs.gpg.package</code></a></span></dt><dd><p>The Gnupg package to use (also used the gpg-agent service).</p><p><span class="emphasis"><em>Type:</em></span>
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.gpg.package"></a><a class="term" href="options.html#opt-programs.gpg.package"><code class="option">programs.gpg.package</code></a></span></dt><dd><p>The Gnupg package to use (also used by the gpg-agent service).</p><p><span class="emphasis"><em>Type:</em></span>
 package</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">pkgs.gnupg</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">pkgs.gnupg23</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gpg.nix" target="_top">
@@ -7799,7 +7810,7 @@ strings concatenated with “\n”</p><p><span class="emphasis"><em>Default:</em
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.nushell.envFile"></a><a class="term" href="options.html#opt-programs.nushell.envFile"><code class="option">programs.nushell.envFile</code></a></span></dt><dd><p>The environment variables file to be used for nushell.</p><p>See <a class="link" href="https://www.nushell.sh/book/configuration.html#configuration" target="_top">https://www.nushell.sh/book/configuration.html#configuration</a> for more information.</p><p><span class="emphasis"><em>Type:</em></span>
 null or (submodule)</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">null</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">''
-  let-env FOO = 'BAR'
+  $env.FOO = 'BAR'
 ''
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/nushell.nix" target="_top">
 &lt;home-manager/modules/programs/nushell.nix&gt;
