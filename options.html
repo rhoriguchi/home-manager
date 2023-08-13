@@ -6316,7 +6316,8 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/khal.nix" target="_top">
 &lt;home-manager/modules/programs/khal.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.khal.locale"></a><a class="term" href="options.html#opt-programs.khal.locale"><code class="option">programs.khal.locale</code></a></span></dt><dd><p>khal locale settings.</p><p><span class="emphasis"><em>Type:</em></span>
-submodule</p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/khal.nix" target="_top">
+submodule</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/khal.nix" target="_top">
 &lt;home-manager/modules/programs/khal.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.khal.locale.dateformat"></a><a class="term" href="options.html#opt-programs.khal.locale.dateformat"><code class="option">programs.khal.locale.dateformat</code></a></span></dt><dd><p>khal will display and understand all dates in this format.</p><p>Format strings are for Python <code class="literal">strftime</code>, similarly to
 <span class="citerefentry"><span class="refentrytitle">strftime</span>(3)</span>.</p><p><span class="emphasis"><em>Type:</em></span>
@@ -6680,16 +6681,18 @@ null or path</p><p><span class="emphasis"><em>Default:</em></span>
 
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/lf.nix" target="_top">
 &lt;home-manager/modules/programs/lf.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.lf.settings"></a><a class="term" href="options.html#opt-programs.lf.settings"><code class="option">programs.lf.settings</code></a></span></dt><dd><p>An attribute set of lf settings. The attribute names and corresponding
-values must be among the following supported options.</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="varname">anchorfind</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">color256</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">dircounts</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">dirfirst</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">drawbox</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">errorfmt</code></span></dt><dd><p>string</p></dd><dt><span class="term"><code class="varname">filesep</code></span></dt><dd><p>string</p></dd><dt><span class="term"><code class="varname">findlen</code></span></dt><dd><p>signed integer</p></dd><dt><span class="term"><code class="varname">globsearch</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">hidden</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">icons</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">ifs</code></span></dt><dd><p>string</p></dd><dt><span class="term"><code class="varname">ignorecase</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">ignoredia</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">incsearch</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">info</code></span></dt><dd><p>string</p></dd><dt><span class="term"><code class="varname">number</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">period</code></span></dt><dd><p>signed integer</p></dd><dt><span class="term"><code class="varname">preview</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">promptfmt</code></span></dt><dd><p>string</p></dd><dt><span class="term"><code class="varname">ratios</code></span></dt><dd><p>string</p></dd><dt><span class="term"><code class="varname">relativenumber</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">reverse</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">scrolloff</code></span></dt><dd><p>signed integer</p></dd><dt><span class="term"><code class="varname">shell</code></span></dt><dd><p>string</p></dd><dt><span class="term"><code class="varname">shellopts</code></span></dt><dd><p>string</p></dd><dt><span class="term"><code class="varname">smartcase</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">smartdia</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">sortby</code></span></dt><dd><p>string</p></dd><dt><span class="term"><code class="varname">tabstop</code></span></dt><dd><p>signed integer</p></dd><dt><span class="term"><code class="varname">timefmt</code></span></dt><dd><p>string</p></dd><dt><span class="term"><code class="varname">wrapscan</code></span></dt><dd><p>boolean</p></dd><dt><span class="term"><code class="varname">wrapscroll</code></span></dt><dd><p>boolean</p></dd></dl></div><p>See the lf documentation for detailed descriptions of these options.
-Use <code class="option">programs.lf.previewer.*</code> to set lf’s
-<code class="varname">previewer</code> option, and
-<a class="xref" href="options.html#opt-programs.lf.extraConfig"><code class="option">programs.lf.extraConfig</code></a> for any other option not listed above.
-All string options are quoted with double quotes.</p><p><span class="emphasis"><em>Type:</em></span>
-submodule</p><p><span class="emphasis"><em>Default:</em></span>
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.lf.settings"></a><a class="term" href="options.html#opt-programs.lf.settings"><code class="option">programs.lf.settings</code></a></span></dt><dd><p>An attribute set of lf settings. See the lf documentation for
+detailed descriptions of these options. Prefer
+<code class="option">programs.lf.previewer.*</code> for setting lf’s <code class="varname">previewer</code>
+option. All string options are quoted with double quotes.</p><p><span class="emphasis"><em>Type:</em></span>
+attribute set of (string or signed integer or list of (string or signed integer) or boolean)</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
   number = true;
-  ratios = "1:1:2";
+  ratios = [
+    1
+    1
+    2
+  ];
   tabstop = 4;
 }
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/lf.nix" target="_top">
@@ -6985,7 +6988,7 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 &lt;home-manager/modules/programs/mpv.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.mpv.package"></a><a class="term" href="options.html#opt-programs.mpv.package"><code class="option">programs.mpv.package</code></a></span></dt><dd><p>Package providing mpv.</p><p><span class="emphasis"><em>Type:</em></span>
 package</p><p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">&lt;derivation mpv-with-scripts-0.35.1&gt;</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">&lt;derivation mpv-with-scripts-0.36.0&gt;</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">pkgs.wrapMpv (pkgs.mpv-unwrapped.override { vapoursynthSupport = true; }) { youtubeSupport = true; }</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mpv.nix" target="_top">
 &lt;home-manager/modules/programs/mpv.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.mpv.bindings"></a><a class="term" href="options.html#opt-programs.mpv.bindings"><code class="option">programs.mpv.bindings</code></a></span></dt><dd><p>Input configuration written to
@@ -7105,6 +7108,10 @@ strings concatenated with “\n”</p><p><span class="emphasis"><em>Default:</em
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mu.nix" target="_top">
+&lt;home-manager/modules/programs/mu.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.mu.package"></a><a class="term" href="options.html#opt-programs.mu.package"><code class="option">programs.mu.package</code></a></span></dt><dd><p>The mu package to use.</p><p><span class="emphasis"><em>Type:</em></span>
+package</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.mu</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mu.nix" target="_top">
 &lt;home-manager/modules/programs/mu.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.mujmap.enable"></a><a class="term" href="options.html#opt-programs.mujmap.enable"><code class="option">programs.mujmap.enable</code></a></span></dt><dd><p>Whether to enable mujmap Gmail synchronization for notmuch.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
@@ -10037,7 +10044,7 @@ package</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">pkgs.tmate</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/tmate.nix" target="_top">
 &lt;home-manager/modules/programs/tmate.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.tmate.dsaFingerprint"></a><a class="term" href="options.html#opt-programs.tmate.dsaFingerprint"><code class="option">programs.tmate.dsaFingerprint</code></a></span></dt><dd><p>Tmate server EdDSA key fingerprint.</p><p><span class="emphasis"><em>Type:</em></span>
-null or Concatenated string</p><p><span class="emphasis"><em>Default:</em></span>
+null or string</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">null</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">SHA256:1111111111111111111111111111111111111111111</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/tmate.nix" target="_top">
 &lt;home-manager/modules/programs/tmate.nix&gt;
@@ -10057,7 +10064,7 @@ null or 16 bit unsigned integer; between 0 and 65535 (both inclusive)</p><p><spa
 <code class="literal">2222</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/tmate.nix" target="_top">
 &lt;home-manager/modules/programs/tmate.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.tmate.rsaFingerprint"></a><a class="term" href="options.html#opt-programs.tmate.rsaFingerprint"><code class="option">programs.tmate.rsaFingerprint</code></a></span></dt><dd><p>Tmate server RSA key fingerprint.</p><p><span class="emphasis"><em>Type:</em></span>
-null or Concatenated string</p><p><span class="emphasis"><em>Default:</em></span>
+null or string</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">null</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">SHA256:1111111111111111111111111111111111111111111</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/tmate.nix" target="_top">
 &lt;home-manager/modules/programs/tmate.nix&gt;
@@ -11142,6 +11149,12 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh.nix" target="_top">
 &lt;home-manager/modules/programs/zsh.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.zsh.history.extended"></a><a class="term" href="options.html#opt-programs.zsh.history.extended"><code class="option">programs.zsh.history.extended</code></a></span></dt><dd><p>Save timestamp into the history file.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh.nix" target="_top">
+&lt;home-manager/modules/programs/zsh.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.zsh.history.ignoreAllDups"></a><a class="term" href="options.html#opt-programs.zsh.history.ignoreAllDups"><code class="option">programs.zsh.history.ignoreAllDups</code></a></span></dt><dd><p>If a new command line being added to the history list
+duplicates an older one, the older command is removed
+from the list (even if it is not the previous event).</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh.nix" target="_top">
 &lt;home-manager/modules/programs/zsh.nix&gt;
@@ -12862,6 +12875,12 @@ executed asynchronously with no guaranteed ordering.</p><p><span class="emphasis
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.kanshi.profiles._name_.outputs"></a><a class="term" href="options.html#opt-services.kanshi.profiles._name_.outputs"><code class="option">services.kanshi.profiles.&lt;name&gt;.outputs</code></a></span></dt><dd><p>Outputs configuration.</p><p><span class="emphasis"><em>Type:</em></span>
 list of (submodule)</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">[ ]</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix" target="_top">
+&lt;home-manager/modules/services/kanshi.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.kanshi.profiles._name_.outputs._.adaptiveSync"></a><a class="term" href="options.html#opt-services.kanshi.profiles._name_.outputs._.adaptiveSync"><code class="option">services.kanshi.profiles.&lt;name&gt;.outputs.*.adaptiveSync</code></a></span></dt><dd><p>Enables or disables adaptive synchronization
+(aka. Variable Refresh Rate).</p><p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix" target="_top">
 &lt;home-manager/modules/services/kanshi.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.kanshi.profiles._name_.outputs._.criteria"></a><a class="term" href="options.html#opt-services.kanshi.profiles._name_.outputs._.criteria"><code class="option">services.kanshi.profiles.&lt;name&gt;.outputs.*.criteria</code></a></span></dt><dd><p>The criteria can either be an output name, an output description or “*”.
 The latter can be used to match any output.</p><p>On
@@ -16426,7 +16445,7 @@ null or boolean</p><p><span class="emphasis"><em>Default:</em></span>
 &lt;home-manager/modules/misc/xdg-desktop-entries.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-xdg.desktopEntries._name_.settings"></a><a class="term" href="options.html#opt-xdg.desktopEntries._name_.settings"><code class="option">xdg.desktopEntries.&lt;name&gt;.settings</code></a></span></dt><dd><p>Extra key-value pairs to add to the <code class="literal">[Desktop Entry]</code> section.
 This may override other values.</p><p><span class="emphasis"><em>Type:</em></span>
-attribute set of Concatenated string</p><p><span class="emphasis"><em>Default:</em></span>
+attribute set of string</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
   Keywords = "calc;math";
   DBusActivatable = "false";
