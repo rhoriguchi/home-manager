@@ -3194,6 +3194,19 @@ list of package</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">[ ]</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/bat.nix" target="_top">
 &lt;home-manager/modules/programs/bat.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.bat.syntaxes"></a><a class="term" href="options.html#opt-programs.bat.syntaxes"><code class="option">programs.bat.syntaxes</code></a></span></dt><dd><p>Additional syntaxes to provide.</p><p><span class="emphasis"><em>Type:</em></span>
+attribute set of strings concatenated with “\n”</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  syntaxes.gleam = builtins.readFile (pkgs.fetchFromGitHub {
+    owner = "molnarmark";
+    repo = "sublime-gleam";
+    rev = "2e761cdb1a87539d827987f997a20a35efd68aa9";
+    hash = "sha256-Zj2DKTcO1t9g18qsNKtpHKElbRSc9nBRE2QBzRn9+qs=";
+  } + "/syntax/gleam.sublime-syntax");
+}
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/bat.nix" target="_top">
+&lt;home-manager/modules/programs/bat.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.bat.themes"></a><a class="term" href="options.html#opt-programs.bat.themes"><code class="option">programs.bat.themes</code></a></span></dt><dd><p>Additional themes to provide.</p><p><span class="emphasis"><em>Type:</em></span>
 attribute set of strings concatenated with “\n”</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
@@ -3586,6 +3599,35 @@ attribute set of (boolean or floating point number or signed integer or string)<
 }
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/btop.nix" target="_top">
 &lt;home-manager/modules/programs/btop.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.carapace.enable"></a><a class="term" href="options.html#opt-programs.carapace.enable"><code class="option">programs.carapace.enable</code></a></span></dt><dd><p>Whether to enable carapace, a multi-shell multi-command argument completer.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/carapace.nix" target="_top">
+&lt;home-manager/modules/programs/carapace.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.carapace.enableBashIntegration"></a><a class="term" href="options.html#opt-programs.carapace.enableBashIntegration"><code class="option">programs.carapace.enableBashIntegration</code></a></span></dt><dd><p>Whether to enable Bash integration.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/carapace.nix" target="_top">
+&lt;home-manager/modules/programs/carapace.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.carapace.enableFishIntegration"></a><a class="term" href="options.html#opt-programs.carapace.enableFishIntegration"><code class="option">programs.carapace.enableFishIntegration</code></a></span></dt><dd><p>Whether to enable Fish integration.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/carapace.nix" target="_top">
+&lt;home-manager/modules/programs/carapace.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.carapace.enableNushellIntegration"></a><a class="term" href="options.html#opt-programs.carapace.enableNushellIntegration"><code class="option">programs.carapace.enableNushellIntegration</code></a></span></dt><dd><p>Whether to enable Nushell integration.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/carapace.nix" target="_top">
+&lt;home-manager/modules/programs/carapace.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.carapace.enableZshIntegration"></a><a class="term" href="options.html#opt-programs.carapace.enableZshIntegration"><code class="option">programs.carapace.enableZshIntegration</code></a></span></dt><dd><p>Whether to enable Zsh integration.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/carapace.nix" target="_top">
+&lt;home-manager/modules/programs/carapace.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.carapace.package"></a><a class="term" href="options.html#opt-programs.carapace.package"><code class="option">programs.carapace.package</code></a></span></dt><dd><p>The carapace package to use.</p><p><span class="emphasis"><em>Type:</em></span>
+package</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.carapace</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/carapace.nix" target="_top">
+&lt;home-manager/modules/programs/carapace.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.chromium.enable"></a><a class="term" href="options.html#opt-programs.chromium.enable"><code class="option">programs.chromium.enable</code></a></span></dt><dd><p>Whether to enable Chromium.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
@@ -3603,6 +3645,14 @@ list of string</p><p><span class="emphasis"><em>Default:</em></span>
   "--enable-logging=stderr"
   "--ignore-gpu-blocklist"
 ]
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/chromium.nix" target="_top">
+&lt;home-manager/modules/programs/chromium.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.chromium.dictionaries"></a><a class="term" href="options.html#opt-programs.chromium.dictionaries"><code class="option">programs.chromium.dictionaries</code></a></span></dt><dd><p>List of Chromium dictionaries to install.</p><p><span class="emphasis"><em>Type:</em></span>
+list of package</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[ ]</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">[
+  pkgs.hunspellDictsChromium.en_US
+]
+
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/chromium.nix" target="_top">
 &lt;home-manager/modules/programs/chromium.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.chromium.extensions"></a><a class="term" href="options.html#opt-programs.chromium.extensions"><code class="option">programs.chromium.extensions</code></a></span></dt><dd><p>List of Chromium extensions to install.
@@ -3868,36 +3918,36 @@ package</p><p><span class="emphasis"><em>Default:</em></span>
 path</p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">./eww-config-dir</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/eww.nix" target="_top">
 &lt;home-manager/modules/programs/eww.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.exa.enable"></a><a class="term" href="options.html#opt-programs.exa.enable"><code class="option">programs.exa.enable</code></a></span></dt><dd><p>Whether to enable exa, a modern replacement for <span class="command"><strong>ls</strong></span>.</p><p><span class="emphasis"><em>Type:</em></span>
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.eza.enable"></a><a class="term" href="options.html#opt-programs.eza.enable"><code class="option">programs.eza.enable</code></a></span></dt><dd><p>Whether to enable eza, a modern replacement for <span class="command"><strong>ls</strong></span>.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/exa.nix" target="_top">
-&lt;home-manager/modules/programs/exa.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.exa.enableAliases"></a><a class="term" href="options.html#opt-programs.exa.enableAliases"><code class="option">programs.exa.enableAliases</code></a></span></dt><dd><p>Whether to enable recommended exa aliases (ls, ll…).</p><p><span class="emphasis"><em>Type:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/eza.nix" target="_top">
+&lt;home-manager/modules/programs/eza.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.eza.enableAliases"></a><a class="term" href="options.html#opt-programs.eza.enableAliases"><code class="option">programs.eza.enableAliases</code></a></span></dt><dd><p>Whether to enable recommended eza aliases (ls, ll…).</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/exa.nix" target="_top">
-&lt;home-manager/modules/programs/exa.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.exa.package"></a><a class="term" href="options.html#opt-programs.exa.package"><code class="option">programs.exa.package</code></a></span></dt><dd><p>The exa package to use.</p><p><span class="emphasis"><em>Type:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/eza.nix" target="_top">
+&lt;home-manager/modules/programs/eza.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.eza.package"></a><a class="term" href="options.html#opt-programs.eza.package"><code class="option">programs.eza.package</code></a></span></dt><dd><p>The eza package to use.</p><p><span class="emphasis"><em>Type:</em></span>
 package</p><p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">pkgs.exa</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/exa.nix" target="_top">
-&lt;home-manager/modules/programs/exa.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.exa.extraOptions"></a><a class="term" href="options.html#opt-programs.exa.extraOptions"><code class="option">programs.exa.extraOptions</code></a></span></dt><dd><p>Extra command line options passed to exa.</p><p><span class="emphasis"><em>Type:</em></span>
+<code class="literal">pkgs.eza</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/eza.nix" target="_top">
+&lt;home-manager/modules/programs/eza.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.eza.extraOptions"></a><a class="term" href="options.html#opt-programs.eza.extraOptions"><code class="option">programs.eza.extraOptions</code></a></span></dt><dd><p>Extra command line options passed to eza.</p><p><span class="emphasis"><em>Type:</em></span>
 list of string</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">[ ]</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">[
   "--group-directories-first"
   "--header"
 ]
-</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/exa.nix" target="_top">
-&lt;home-manager/modules/programs/exa.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.exa.git"></a><a class="term" href="options.html#opt-programs.exa.git"><code class="option">programs.exa.git</code></a></span></dt><dd><p>List each file’s Git status if tracked or ignored (<code class="option">--git</code> argument).</p><p><span class="emphasis"><em>Type:</em></span>
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/eza.nix" target="_top">
+&lt;home-manager/modules/programs/eza.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.eza.git"></a><a class="term" href="options.html#opt-programs.eza.git"><code class="option">programs.eza.git</code></a></span></dt><dd><p>List each file’s Git status if tracked or ignored (<code class="option">--git</code> argument).</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/exa.nix" target="_top">
-&lt;home-manager/modules/programs/exa.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.exa.icons"></a><a class="term" href="options.html#opt-programs.exa.icons"><code class="option">programs.exa.icons</code></a></span></dt><dd><p>Display icons next to file names (<code class="option">--icons</code> argument).</p><p><span class="emphasis"><em>Type:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/eza.nix" target="_top">
+&lt;home-manager/modules/programs/eza.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.eza.icons"></a><a class="term" href="options.html#opt-programs.eza.icons"><code class="option">programs.eza.icons</code></a></span></dt><dd><p>Display icons next to file names (<code class="option">--icons</code> argument).</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/exa.nix" target="_top">
-&lt;home-manager/modules/programs/exa.nix&gt;
+<code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/eza.nix" target="_top">
+&lt;home-manager/modules/programs/eza.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.feh.enable"></a><a class="term" href="options.html#opt-programs.feh.enable"><code class="option">programs.feh.enable</code></a></span></dt><dd><p>Whether to enable feh - a fast and light image viewer.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
@@ -6382,6 +6432,20 @@ As those are ISO week numbers, they only work properly if
 one of “off”, “left”, “right”</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">"off"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/khal.nix" target="_top">
 &lt;home-manager/modules/programs/khal.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.khal.settings"></a><a class="term" href="options.html#opt-programs.khal.settings"><code class="option">programs.khal.settings</code></a></span></dt><dd><p>Configuration options to add to the various sections in the configuration file.</p><p><span class="emphasis"><em>Type:</em></span>
+attribute set of attribute set of (INI atom (null, bool, int, float or string))</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  default = {
+    default_calendar = "Calendar";
+    timedelta = "5d";
+  };
+  view = {
+    agenda_event_format =
+      "{calendar-color}{cancelled}{start-end-time-style} {title}{repeat-symbol}{reset}";
+  };
+}
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/khal.nix" target="_top">
+&lt;home-manager/modules/programs/khal.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.kitty.enable"></a><a class="term" href="options.html#opt-programs.kitty.enable"><code class="option">programs.kitty.enable</code></a></span></dt><dd><p>Whether to enable Kitty terminal emulator.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
@@ -8702,6 +8766,22 @@ attribute set of (string or signed integer or boolean)</p><p><span class="emphas
 }
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/readline.nix" target="_top">
 &lt;home-manager/modules/programs/readline.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.rio.enable"></a><a class="term" href="options.html#opt-programs.rio.enable"><code class="option">programs.rio.enable</code></a></span></dt><dd><p>Enable Rio, a terminal built to run everywhere, as a native desktop applications by
+Rust/WebGPU or even in the browsers powered by WebAssembly/WebGPU.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rio.nix" target="_top">
+&lt;home-manager/modules/programs/rio.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.rio.package"></a><a class="term" href="options.html#opt-programs.rio.package"><code class="option">programs.rio.package</code></a></span></dt><dd><p>The rio package to use.</p><p><span class="emphasis"><em>Type:</em></span>
+package</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.rio</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rio.nix" target="_top">
+&lt;home-manager/modules/programs/rio.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.rio.settings"></a><a class="term" href="options.html#opt-programs.rio.settings"><code class="option">programs.rio.settings</code></a></span></dt><dd><p>Configuration written to &lt;filename&gt;$XDG_CONFIG_HOME/rio/config.toml&lt;/filename&gt; on Linux or
+&lt;filename&gt;$HOME/Library/Application Support/rio/config.toml&lt;/filename&gt; on Darwin. See
+&lt;link xlink:href=“https://raphamorim.io/rio/docs/#configuration-file”/&gt; for options.</p><p><span class="emphasis"><em>Type:</em></span>
+TOML value</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rio.nix" target="_top">
+&lt;home-manager/modules/programs/rio.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.ripgrep.enable"></a><a class="term" href="options.html#opt-programs.ripgrep.enable"><code class="option">programs.ripgrep.enable</code></a></span></dt><dd><p>Whether to enable Ripgrep.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
@@ -8766,6 +8846,11 @@ one of “bottom”, “bottom-left”, “bottom-right”, “center”, “lef
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rofi-pass.nix" target="_top">
+&lt;home-manager/modules/programs/rofi-pass.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.rofi.pass.package"></a><a class="term" href="options.html#opt-programs.rofi.pass.package"><code class="option">programs.rofi.pass.package</code></a></span></dt><dd><p>The rofi-pass package to use.</p><p><span class="emphasis"><em>Type:</em></span>
+package</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.rofi-pass</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">pkgs.rofi-pass-wayland</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rofi-pass.nix" target="_top">
 &lt;home-manager/modules/programs/rofi-pass.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.rofi.pass.extraConfig"></a><a class="term" href="options.html#opt-programs.rofi.pass.extraConfig"><code class="option">programs.rofi.pass.extraConfig</code></a></span></dt><dd><p>Extra configuration to be added at to the rofi-pass config file.
 Additional examples can be found at
@@ -9610,7 +9695,12 @@ Starship configuration</p><p><span class="emphasis"><em>Default:</em></span>
 
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/starship.nix" target="_top">
 &lt;home-manager/modules/programs/starship.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.swaylock.enable"></a><a class="term" href="options.html#opt-programs.swaylock.enable"><code class="option">programs.swaylock.enable</code></a></span></dt><dd><p>Whether to enable swaylock.</p><p><span class="emphasis"><em>Type:</em></span>
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.swaylock.enable"></a><a class="term" href="options.html#opt-programs.swaylock.enable"><code class="option">programs.swaylock.enable</code></a></span></dt><dd><p>Whether to enable swaylock.</p><p>Note that PAM must be configured to enable swaylock to perform
+authentication. The package installed through home-manager
+will <span class="emphasis"><em>not</em></span> be able to unlock the session without this
+configuration.</p><p>On NixOS, this is by default enabled with the sway module, but
+for other compositors it can currently be enabled using:</p><pre class="programlisting nix">security.pam.services.swaylock = {};
+</pre><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span></p><pre class="programlisting">true  if state version &lt; 23.05 and settings ≠ { },
 false otherwise
 
@@ -10933,6 +11023,105 @@ strings concatenated with “\n”</p><p><span class="emphasis"><em>Default:</em
 
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/xmobar.nix" target="_top">
 &lt;home-manager/modules/programs/xmobar.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.xplr.enable"></a><a class="term" href="options.html#opt-programs.xplr.enable"><code class="option">programs.xplr.enable</code></a></span></dt><dd><p>Whether to enable xplr, terminal UI based file explorer.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/xplr.nix" target="_top">
+&lt;home-manager/modules/programs/xplr.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.xplr.package"></a><a class="term" href="options.html#opt-programs.xplr.package"><code class="option">programs.xplr.package</code></a></span></dt><dd><p>The xplr package to use.</p><p><span class="emphasis"><em>Type:</em></span>
+package</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.xplr</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/xplr.nix" target="_top">
+&lt;home-manager/modules/programs/xplr.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.xplr.extraConfig"></a><a class="term" href="options.html#opt-programs.xplr.extraConfig"><code class="option">programs.xplr.extraConfig</code></a></span></dt><dd><p>Extra xplr configuration.</p><p><span class="emphasis"><em>Type:</em></span>
+strings concatenated with “\n”</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">""</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">require("wl-clipboard").setup {
+  copy_command = "wl-copy -t text/uri-list",
+  paste_command = "wl-paste",
+  keep_selection = true,
+}
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/xplr.nix" target="_top">
+&lt;home-manager/modules/programs/xplr.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.xplr.plugins"></a><a class="term" href="options.html#opt-programs.xplr.plugins"><code class="option">programs.xplr.plugins</code></a></span></dt><dd><p>Plugins to be added to your configuration file.</p><p>Must be a package, an absolute plugin path, or string to be recognized
+by xplr. Paths will be relative to
+<code class="filename">$XDG_CONFIG_HOME/xplr/init.lua</code> unless they are absolute.</p><p><span class="emphasis"><em>Type:</em></span>
+null or (list of (package or string))</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[]</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/xplr.nix" target="_top">
+&lt;home-manager/modules/programs/xplr.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.yazi.enable"></a><a class="term" href="options.html#opt-programs.yazi.enable"><code class="option">programs.yazi.enable</code></a></span></dt><dd><p>Whether to enable yazi.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/yazi.nix" target="_top">
+&lt;home-manager/modules/programs/yazi.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.yazi.enableBashIntegration"></a><a class="term" href="options.html#opt-programs.yazi.enableBashIntegration"><code class="option">programs.yazi.enableBashIntegration</code></a></span></dt><dd><p>Whether to enable Bash integration.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/yazi.nix" target="_top">
+&lt;home-manager/modules/programs/yazi.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.yazi.enableZshIntegration"></a><a class="term" href="options.html#opt-programs.yazi.enableZshIntegration"><code class="option">programs.yazi.enableZshIntegration</code></a></span></dt><dd><p>Whether to enable Zsh integration.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/yazi.nix" target="_top">
+&lt;home-manager/modules/programs/yazi.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.yazi.package"></a><a class="term" href="options.html#opt-programs.yazi.package"><code class="option">programs.yazi.package</code></a></span></dt><dd><p>Yazi package to install.</p><p><span class="emphasis"><em>Type:</em></span>
+package</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.yazi</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/yazi.nix" target="_top">
+&lt;home-manager/modules/programs/yazi.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.yazi.keymap"></a><a class="term" href="options.html#opt-programs.yazi.keymap"><code class="option">programs.yazi.keymap</code></a></span></dt><dd><p>Configuration written to
+<code class="filename">$XDG_CONFIG_HOME/yazi/keymap.toml</code>.</p><p>See <a class="link" href="https://github.com/sxyazi/yazi/blob/main/config/docs/keymap.md" target="_top">https://github.com/sxyazi/yazi/blob/main/config/docs/keymap.md</a>
+for the full list of options.</p><p><span class="emphasis"><em>Type:</em></span>
+TOML value</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  input.keymap = [
+    { exec = "close"; on = [ "&lt;C-q&gt;" ]; }
+    { exec = "close --submit"; on = [ "&lt;Enter&gt;" ]; }
+    { exec = "escape"; on = [ "&lt;Esc&gt;" ]; }
+    { exec = "backspace"; on = [ "&lt;Backspace&gt;" ]; }
+  ];
+  manager.keymap = [
+    { exec = "escape"; on = [ "&lt;Esc&gt;" ]; }
+    { exec = "quit"; on = [ "q" ]; }
+    { exec = "close"; on = [ "&lt;C-q&gt;" ]; }
+  ];
+}
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/yazi.nix" target="_top">
+&lt;home-manager/modules/programs/yazi.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.yazi.settings"></a><a class="term" href="options.html#opt-programs.yazi.settings"><code class="option">programs.yazi.settings</code></a></span></dt><dd><p>Configuration written to
+<code class="filename">$XDG_CONFIG_HOME/yazi/yazi.toml</code>.</p><p>See <a class="link" href="https://github.com/sxyazi/yazi/blob/main/config/docs/yazi.md" target="_top">https://github.com/sxyazi/yazi/blob/main/config/docs/yazi.md</a>
+for the full list of options.</p><p><span class="emphasis"><em>Type:</em></span>
+TOML value</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  log = {
+    enabled = false;
+  };
+  manager = {
+    show_hidden = false;
+    sort_by = "modified";
+    sort_dir_first = true;
+    sort_reverse = true;
+  };
+}
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/yazi.nix" target="_top">
+&lt;home-manager/modules/programs/yazi.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.yazi.theme"></a><a class="term" href="options.html#opt-programs.yazi.theme"><code class="option">programs.yazi.theme</code></a></span></dt><dd><p>Configuration written to
+<code class="filename">$XDG_CONFIG_HOME/yazi/theme.toml</code>.</p><p>See <a class="link" href="https://github.com/sxyazi/yazi/blob/main/config/docs/theme.md" target="_top">https://github.com/sxyazi/yazi/blob/main/config/docs/theme.md</a>
+for the full list of options</p><p><span class="emphasis"><em>Type:</em></span>
+TOML value</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  filetype = {
+    rules = [
+      { fg = "#7AD9E5"; mime = "image/*"; }
+      { fg = "#F3D398"; mime = "video/*"; }
+      { fg = "#F3D398"; mime = "audio/*"; }
+      { fg = "#CD9EFC"; mime = "application/x-bzip"; }
+    ];
+  };
+}
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/yazi.nix" target="_top">
+&lt;home-manager/modules/programs/yazi.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.yt-dlp.enable"></a><a class="term" href="options.html#opt-programs.yt-dlp.enable"><code class="option">programs.yt-dlp.enable</code></a></span></dt><dd><p>Whether to enable yt-dlp.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
@@ -13659,6 +13848,10 @@ string</p><p><span class="emphasis"><em>Default:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/pasystray.nix" target="_top">
+&lt;home-manager/modules/services/pasystray.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.pasystray.extraOptions"></a><a class="term" href="options.html#opt-services.pasystray.extraOptions"><code class="option">services.pasystray.extraOptions</code></a></span></dt><dd><p>Extra command-line arguments to pass to <span class="command"><strong>pasystray</strong></span>.</p><p><span class="emphasis"><em>Type:</em></span>
+list of string</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[ ]</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/pasystray.nix" target="_top">
 &lt;home-manager/modules/services/pasystray.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.pbgopy.enable"></a><a class="term" href="options.html#opt-services.pbgopy.enable"><code class="option">services.pbgopy.enable</code></a></span></dt><dd><p>Whether to enable pbgopy.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
