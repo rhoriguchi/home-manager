@@ -3258,27 +3258,33 @@ list of package</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/bat.nix" target="_top">
 &lt;home-manager/modules/programs/bat.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.bat.syntaxes"></a><a class="term" href="options.html#opt-programs.bat.syntaxes"><code class="option">programs.bat.syntaxes</code></a></span></dt><dd><p>Additional syntaxes to provide.</p><p><span class="emphasis"><em>Type:</em></span>
-attribute set of strings concatenated with “\n”</p><p><span class="emphasis"><em>Default:</em></span>
+attribute set of (strings concatenated with “\n” or (submodule))</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
-  syntaxes.gleam = builtins.readFile (pkgs.fetchFromGitHub {
-    owner = "molnarmark";
-    repo = "sublime-gleam";
-    rev = "2e761cdb1a87539d827987f997a20a35efd68aa9";
-    hash = "sha256-Zj2DKTcO1t9g18qsNKtpHKElbRSc9nBRE2QBzRn9+qs=";
-  } + "/syntax/gleam.sublime-syntax");
+  gleam = {
+    src = pkgs.fetchFromGitHub {
+      owner = "molnarmark";
+      repo = "sublime-gleam";
+      rev = "2e761cdb1a87539d827987f997a20a35efd68aa9";
+      hash = "sha256-Zj2DKTcO1t9g18qsNKtpHKElbRSc9nBRE2QBzRn9+qs=";
+    };
+    file = "syntax/gleam.sublime-syntax";
+  };
 }
 
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/bat.nix" target="_top">
 &lt;home-manager/modules/programs/bat.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.bat.themes"></a><a class="term" href="options.html#opt-programs.bat.themes"><code class="option">programs.bat.themes</code></a></span></dt><dd><p>Additional themes to provide.</p><p><span class="emphasis"><em>Type:</em></span>
-attribute set of strings concatenated with “\n”</p><p><span class="emphasis"><em>Default:</em></span>
+attribute set of (strings concatenated with “\n” or (submodule))</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
-  dracula = builtins.readFile (pkgs.fetchFromGitHub {
-    owner = "dracula";
-    repo = "sublime"; # Bat uses sublime syntax for its themes
-    rev = "26c57ec282abcaa76e57e055f38432bd827ac34e";
-    sha256 = "019hfl4zbn4vm4154hh3bwk6hm7bdxbr1hdww83nabxwjn99ndhv";
-  } + "/Dracula.tmTheme");
+  dracula = {
+    src = pkgs.fetchFromGitHub {
+      owner = "dracula";
+      repo = "sublime"; # Bat uses sublime syntax for its themes
+      rev = "26c57ec282abcaa76e57e055f38432bd827ac34e";
+      sha256 = "019hfl4zbn4vm4154hh3bwk6hm7bdxbr1hdww83nabxwjn99ndhv";
+    };
+    file = "Dracula.tmTheme";
+  };
 }
 
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/bat.nix" target="_top">
@@ -11618,14 +11624,16 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh.nix" target="_top">
 &lt;home-manager/modules/programs/zsh.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.zsh.historySubstringSearch.searchDownKey"></a><a class="term" href="options.html#opt-programs.zsh.historySubstringSearch.searchDownKey"><code class="option">programs.zsh.historySubstringSearch.searchDownKey</code></a></span></dt><dd><p>The key codes to be used when searching down.
-The default of <code class="literal">^[[B</code> corresponds to the DOWN key.</p><p><span class="emphasis"><em>Type:</em></span>
+The default of <code class="literal">^[[B</code> may correspond to the DOWN key – if not, try
+<code class="literal">$terminfo[kcud1]</code>.</p><p><span class="emphasis"><em>Type:</em></span>
 (list of string) or string</p><p><span class="emphasis"><em>Default:</em></span></p><pre class="programlisting">[
   "^[[B"
 ]
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh.nix" target="_top">
 &lt;home-manager/modules/programs/zsh.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.zsh.historySubstringSearch.searchUpKey"></a><a class="term" href="options.html#opt-programs.zsh.historySubstringSearch.searchUpKey"><code class="option">programs.zsh.historySubstringSearch.searchUpKey</code></a></span></dt><dd><p>The key codes to be used when searching up.
-The default of <code class="literal">^[[A</code> corresponds to the UP key.</p><p><span class="emphasis"><em>Type:</em></span>
+The default of <code class="literal">^[[A</code> may correspond to the UP key – if not, try
+<code class="literal">$terminfo[kcuu1]</code>.</p><p><span class="emphasis"><em>Type:</em></span>
 (list of string) or string</p><p><span class="emphasis"><em>Default:</em></span></p><pre class="programlisting">[
   "^[[A"
 ]
@@ -12304,6 +12312,22 @@ null or positive integer, meaning &gt;0</p><p><span class="emphasis"><em>Default
 <code class="literal">null</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">5</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/cbatticon.nix" target="_top">
 &lt;home-manager/modules/services/cbatticon.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.cliphist.enable"></a><a class="term" href="options.html#opt-services.cliphist.enable"><code class="option">services.cliphist.enable</code></a></span></dt><dd><p>Whether to enable cliphist, a clipboard history “manager” for wayland.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/cliphist.nix" target="_top">
+&lt;home-manager/modules/services/cliphist.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.cliphist.package"></a><a class="term" href="options.html#opt-services.cliphist.package"><code class="option">services.cliphist.package</code></a></span></dt><dd><p>The cliphist package to use.</p><p><span class="emphasis"><em>Type:</em></span>
+package</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.cliphist</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/cliphist.nix" target="_top">
+&lt;home-manager/modules/services/cliphist.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.cliphist.systemdTarget"></a><a class="term" href="options.html#opt-services.cliphist.systemdTarget"><code class="option">services.cliphist.systemdTarget</code></a></span></dt><dd><p>The systemd target that will automatically start the cliphist service.</p><p>When setting this value to <code class="literal">"sway-session.target"</code>,
+make sure to also enable <code class="option">wayland.windowManager.sway.systemd.enable</code>,
+otherwise the service may never be started.</p><p><span class="emphasis"><em>Type:</em></span>
+string</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">"graphical-session.target"</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">"sway-session.target"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/cliphist.nix" target="_top">
+&lt;home-manager/modules/services/cliphist.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.clipman.enable"></a><a class="term" href="options.html#opt-services.clipman.enable"><code class="option">services.clipman.enable</code></a></span></dt><dd><p>Whether to enable clipman, a simple clipboard manager for Wayland.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
@@ -12374,6 +12398,56 @@ string</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">"graphical-session.target"</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">"sway-session.target"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/copyq.nix" target="_top">
 &lt;home-manager/modules/services/copyq.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.darkman.enable"></a><a class="term" href="options.html#opt-services.darkman.enable"><code class="option">services.darkman.enable</code></a></span></dt><dd><p>Whether to enable darkman, a tool that automatically switches dark-mode on and off based on
+the time of the day.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/darkman.nix" target="_top">
+&lt;home-manager/modules/services/darkman.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.darkman.package"></a><a class="term" href="options.html#opt-services.darkman.package"><code class="option">services.darkman.package</code></a></span></dt><dd><p>The darkman package to use.</p><p><span class="emphasis"><em>Type:</em></span>
+package</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.darkman</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/darkman.nix" target="_top">
+&lt;home-manager/modules/services/darkman.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.darkman.darkModeScripts"></a><a class="term" href="options.html#opt-services.darkman.darkModeScripts"><code class="option">services.darkman.darkModeScripts</code></a></span></dt><dd><p>Scripts to run when switching to “dark mode”.</p><p>Multiline strings are interpreted as Bash shell scripts and a shebang is
+not required.</p><p><span class="emphasis"><em>Type:</em></span>
+attribute set of (path or strings concatenated with “\n”)</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  gtk-theme = ''
+    ${pkgs.dconf}/bin/dconf write \
+        /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+  '';
+  my-python-script = pkgs.writers.writePython3 "my-python-script" { } ''
+    print('Do something!')
+  '';
+}
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/darkman.nix" target="_top">
+&lt;home-manager/modules/services/darkman.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.darkman.lightModeScripts"></a><a class="term" href="options.html#opt-services.darkman.lightModeScripts"><code class="option">services.darkman.lightModeScripts</code></a></span></dt><dd><p>Scripts to run when switching to “light mode”.</p><p>Multiline strings are interpreted as Bash shell scripts and a shebang is
+not required.</p><p><span class="emphasis"><em>Type:</em></span>
+attribute set of (path or strings concatenated with “\n”)</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  gtk-theme = ''
+    ${pkgs.dconf}/bin/dconf write \
+        /org/gnome/desktop/interface/color-scheme "'prefer-light'"
+  '';
+  my-python-script = pkgs.writers.writePython3 "my-python-script" { } ''
+    print('Do something!')
+  '';
+}
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/darkman.nix" target="_top">
+&lt;home-manager/modules/services/darkman.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.darkman.settings"></a><a class="term" href="options.html#opt-services.darkman.settings"><code class="option">services.darkman.settings</code></a></span></dt><dd><p>Settings for the <span class="command"><strong>darkman</strong></span> command. See
+<a class="link" href="https://darkman.whynothugo.nl/#CONFIGURATION" target="_top">https://darkman.whynothugo.nl/#CONFIGURATION</a> for details.</p><p><span class="emphasis"><em>Type:</em></span>
+YAML value</p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  lat = 52.3;
+  lng = 4.8;
+  usegeoclue = true;
+}
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/darkman.nix" target="_top">
+&lt;home-manager/modules/services/darkman.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.devilspie2.enable"></a><a class="term" href="options.html#opt-services.devilspie2.enable"><code class="option">services.devilspie2.enable</code></a></span></dt><dd><p>Whether to enable Devilspie2, a window matching utility, allowing the user to
 perform scripted actions on windows as they are created.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
@@ -14023,20 +14097,6 @@ null or string</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">"$HOME/.password-store"</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">"/home/user/.local/share/password-store"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/pass-secret-service.nix" target="_top">
 &lt;home-manager/modules/services/pass-secret-service.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.password-store-sync.enable"></a><a class="term" href="options.html#opt-services.password-store-sync.enable"><code class="option">services.password-store-sync.enable</code></a></span></dt><dd><p>Whether to enable Password store periodic sync.</p><p><span class="emphasis"><em>Type:</em></span>
-boolean</p><p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/password-store-sync.nix" target="_top">
-&lt;home-manager/modules/services/password-store-sync.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.password-store-sync.frequency"></a><a class="term" href="options.html#opt-services.password-store-sync.frequency"><code class="option">services.password-store-sync.frequency</code></a></span></dt><dd><p>How often to synchronise the password store git repository with its
-default upstream.</p><p>This value is passed to the systemd timer configuration as the
-<code class="literal">onCalendar</code> option.
-See
-<a class="link" href="https://www.freedesktop.org/software/systemd/man/systemd.time.html" target="_top"><span class="citerefentry"><span class="refentrytitle">systemd.time</span>(7)</span></a>
-for more information about the format.</p><p><span class="emphasis"><em>Type:</em></span>
-string</p><p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">"*:0/5"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/password-store-sync.nix" target="_top">
-&lt;home-manager/modules/services/password-store-sync.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.pasystray.enable"></a><a class="term" href="options.html#opt-services.pasystray.enable"><code class="option">services.pasystray.enable</code></a></span></dt><dd><p>Whether to enable PulseAudio system tray.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
@@ -15085,6 +15145,11 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/unison.nix" target="_top">
 &lt;home-manager/modules/services/unison.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.unison.package"></a><a class="term" href="options.html#opt-services.unison.package"><code class="option">services.unison.package</code></a></span></dt><dd><p>The unison package to use.</p><p><span class="emphasis"><em>Type:</em></span>
+package</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.unison</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">pkgs.unison.override { enableX11 = false; }</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/unison.nix" target="_top">
+&lt;home-manager/modules/services/unison.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.unison.pairs"></a><a class="term" href="options.html#opt-services.unison.pairs"><code class="option">services.unison.pairs</code></a></span></dt><dd><p>Unison root pairs to keep synchronised.</p><p><span class="emphasis"><em>Type:</em></span>
 attribute set of (submodule)</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
@@ -15977,12 +16042,33 @@ Hyprland configuration value</p><p><span class="emphasis"><em>Default:</em></spa
 
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/hyprland.nix" target="_top">
 &lt;home-manager/modules/services/window-managers/hyprland.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-wayland.windowManager.hyprland.systemdIntegration"></a><a class="term" href="options.html#opt-wayland.windowManager.hyprland.systemdIntegration"><code class="option">wayland.windowManager.hyprland.systemdIntegration</code></a></span></dt><dd><p>Whether to enable <code class="filename">hyprland-session.target</code> on
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-wayland.windowManager.hyprland.systemd.enable"></a><a class="term" href="options.html#opt-wayland.windowManager.hyprland.systemd.enable"><code class="option">wayland.windowManager.hyprland.systemd.enable</code></a></span></dt><dd><p>Whether to enable <code class="filename">hyprland-session.target</code> on
 hyprland startup. This links to <code class="literal">graphical-session.target</code>.
 Some important environment variables will be imported to systemd
-and dbus user environment before reaching the target, including</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><code class="literal">DISPLAY</code></p></li><li class="listitem"><p><code class="literal">HYPRLAND_INSTANCE_SIGNATURE</code></p></li><li class="listitem"><p><code class="literal">WAYLAND_DISPLAY</code></p></li><li class="listitem"><p><code class="literal">XDG_CURRENT_DESKTOP</code></p></li></ul></div><p><span class="emphasis"><em>Type:</em></span>
+and D-Bus user environment before reaching the target, including</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><code class="literal">DISPLAY</code></p></li><li class="listitem"><p><code class="literal">HYPRLAND_INSTANCE_SIGNATURE</code></p></li><li class="listitem"><p><code class="literal">WAYLAND_DISPLAY</code></p></li><li class="listitem"><p><code class="literal">XDG_CURRENT_DESKTOP</code></p></li></ul></div><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/hyprland.nix" target="_top">
+&lt;home-manager/modules/services/window-managers/hyprland.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-wayland.windowManager.hyprland.systemd.extraCommands"></a><a class="term" href="options.html#opt-wayland.windowManager.hyprland.systemd.extraCommands"><code class="option">wayland.windowManager.hyprland.systemd.extraCommands</code></a></span></dt><dd><p>Extra commands to be run after D-Bus activation.</p><p><span class="emphasis"><em>Type:</em></span>
+list of string</p><p><span class="emphasis"><em>Default:</em></span></p><pre class="programlisting">[
+  "systemctl --user stop hyprland-session.target"
+  "systemctl --user start hyprland-session.target"
+]
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/hyprland.nix" target="_top">
+&lt;home-manager/modules/services/window-managers/hyprland.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-wayland.windowManager.hyprland.systemd.variables"></a><a class="term" href="options.html#opt-wayland.windowManager.hyprland.systemd.variables"><code class="option">wayland.windowManager.hyprland.systemd.variables</code></a></span></dt><dd><p>Environment variables to be imported in the systemd &amp; D-Bus user
+environment.</p><p><span class="emphasis"><em>Type:</em></span>
+list of string</p><p><span class="emphasis"><em>Default:</em></span></p><pre class="programlisting">[
+  "DISPLAY"
+  "HYPRLAND_INSTANCE_SIGNATURE"
+  "WAYLAND_DISPLAY"
+  "XDG_CURRENT_DESKTOP"
+]
+</pre><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">[
+  "-all"
+]
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/hyprland.nix" target="_top">
 &lt;home-manager/modules/services/window-managers/hyprland.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-wayland.windowManager.hyprland.xwayland.enable"></a><a class="term" href="options.html#opt-wayland.windowManager.hyprland.xwayland.enable"><code class="option">wayland.windowManager.hyprland.xwayland.enable</code></a></span></dt><dd><p>Whether to enable XWayland.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
