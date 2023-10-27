@@ -3697,6 +3697,31 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 package</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">pkgs.carapace</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/carapace.nix" target="_top">
 &lt;home-manager/modules/programs/carapace.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.cava.enable"></a><a class="term" href="options.html#opt-programs.cava.enable"><code class="option">programs.cava.enable</code></a></span></dt><dd><p>Whether to enable Cava audio visualizer.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/cava.nix" target="_top">
+&lt;home-manager/modules/programs/cava.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.cava.package"></a><a class="term" href="options.html#opt-programs.cava.package"><code class="option">programs.cava.package</code></a></span></dt><dd><p>The cava package to use.</p><p><span class="emphasis"><em>Type:</em></span>
+package</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.cava</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/cava.nix" target="_top">
+&lt;home-manager/modules/programs/cava.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.cava.settings"></a><a class="term" href="options.html#opt-programs.cava.settings"><code class="option">programs.cava.settings</code></a></span></dt><dd><p>Settings to be written to the Cava configuration file. See
+<a class="link" href="https://github.com/karlstav/cava/blob/master/example_files/config" target="_top">https://github.com/karlstav/cava/blob/master/example_files/config</a> for
+all available options.</p><p><span class="emphasis"><em>Type:</em></span>
+attribute set of attribute set of (INI atom (null, bool, int, float or string))</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  general.framerate = 60;
+  input.method = "alsa";
+  smoothing.noise_reduction = 88;
+  color = {
+    background = "'#000000'";
+    foreground = "'#FFFFFF'";
+  };
+}
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/cava.nix" target="_top">
+&lt;home-manager/modules/programs/cava.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.chromium.enable"></a><a class="term" href="options.html#opt-programs.chromium.enable"><code class="option">programs.chromium.enable</code></a></span></dt><dd><p>Whether to enable Chromium.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
@@ -5212,6 +5237,11 @@ package</p><p><span class="emphasis"><em>Default:</em></span>
 editor using the <code class="envar">EDITOR</code> environment variable.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/helix.nix" target="_top">
+&lt;home-manager/modules/programs/helix.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.helix.extraPackages"></a><a class="term" href="options.html#opt-programs.helix.extraPackages"><code class="option">programs.helix.extraPackages</code></a></span></dt><dd><p>Extra packages available to hx.</p><p><span class="emphasis"><em>Type:</em></span>
+list of package</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[ ]</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">[ pkgs.marksman ]</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/helix.nix" target="_top">
 &lt;home-manager/modules/programs/helix.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.helix.languages"></a><a class="term" href="options.html#opt-programs.helix.languages"><code class="option">programs.helix.languages</code></a></span></dt><dd><p>Language specific configuration at
 <code class="filename">$XDG_CONFIG_HOME/helix/languages.toml</code>.</p><p>See <a class="link" href="https://docs.helix-editor.com/languages.html" target="_top">https://docs.helix-editor.com/languages.html</a>
@@ -8659,6 +8689,23 @@ attribute set of string</p><p><span class="emphasis"><em>Default:</em></span>
 strings concatenated with “\n”</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">""</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/qutebrowser.nix" target="_top">
 &lt;home-manager/modules/programs/qutebrowser.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.qutebrowser.greasemonkey"></a><a class="term" href="options.html#opt-programs.qutebrowser.greasemonkey"><code class="option">programs.qutebrowser.greasemonkey</code></a></span></dt><dd><p>Greasemonkey userscripts to add to qutebrowser’s <code class="filename">greasemonkey</code>
+directory.</p><p><span class="emphasis"><em>Type:</em></span>
+list of package</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[ ]</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">[
+  (pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/afreakk/greasemonkeyscripts/1d1be041a65c251692ee082eda64d2637edf6444/youtube_sponsorblock.js";
+    sha256 = "sha256-e3QgDPa3AOpPyzwvVjPQyEsSUC9goisjBUDMxLwg8ZE=";
+  })
+  (pkgs.writeText "some-script.js" ''
+    // ==UserScript==
+    // @name  Some Greasemonkey script
+    // ==/UserScript==
+  '')
+]
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/qutebrowser.nix" target="_top">
+&lt;home-manager/modules/programs/qutebrowser.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.qutebrowser.keyBindings"></a><a class="term" href="options.html#opt-programs.qutebrowser.keyBindings"><code class="option">programs.qutebrowser.keyBindings</code></a></span></dt><dd><p>Key bindings mapping keys to commands in different modes. This setting
 is a dictionary containing mode names and dictionaries mapping keys to
 commands: <code class="literal">{mode: {key: command}}</code> If you want to map
@@ -10171,6 +10218,11 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 &lt;home-manager/modules/programs/thefuck.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.thefuck.enableBashIntegration"></a><a class="term" href="options.html#opt-programs.thefuck.enableBashIntegration"><code class="option">programs.thefuck.enableBashIntegration</code></a></span></dt><dd><p>Whether to enable Bash integration.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thefuck.nix" target="_top">
+&lt;home-manager/modules/programs/thefuck.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.thefuck.enableInstantMode"></a><a class="term" href="options.html#opt-programs.thefuck.enableInstantMode"><code class="option">programs.thefuck.enableInstantMode</code></a></span></dt><dd><p>Whether to enable thefuck’s experimental instant mode.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thefuck.nix" target="_top">
 &lt;home-manager/modules/programs/thefuck.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.thefuck.enableZshIntegration"></a><a class="term" href="options.html#opt-programs.thefuck.enableZshIntegration"><code class="option">programs.thefuck.enableZshIntegration</code></a></span></dt><dd><p>Whether to enable Zsh integration.</p><p><span class="emphasis"><em>Type:</em></span>
@@ -12274,6 +12326,11 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/cbatticon.nix" target="_top">
+&lt;home-manager/modules/services/cbatticon.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.cbatticon.batteryId"></a><a class="term" href="options.html#opt-services.cbatticon.batteryId"><code class="option">services.cbatticon.batteryId</code></a></span></dt><dd><p>ID of the battery to monitor. List with <span class="command"><strong>cbatticon -p</strong></span>.
+Defaults to the first entry in the list.</p><p><span class="emphasis"><em>Type:</em></span>
+null or string</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/cbatticon.nix" target="_top">
 &lt;home-manager/modules/services/cbatticon.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.cbatticon.commandCriticalLevel"></a><a class="term" href="options.html#opt-services.cbatticon.commandCriticalLevel"><code class="option">services.cbatticon.commandCriticalLevel</code></a></span></dt><dd><p>Command to execute when the critical battery level is reached.</p><p><span class="emphasis"><em>Type:</em></span>
 null or strings concatenated with “\n”</p><p><span class="emphasis"><em>Default:</em></span>
@@ -14477,20 +14534,18 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/recoll.nix" target="_top">
 &lt;home-manager/modules/services/recoll.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.recoll.package"></a><a class="term" href="options.html#opt-services.recoll.package"><code class="option">services.recoll.package</code></a></span></dt><dd><p>Package providing the <code class="literal">recoll</code> binary.</p><p><span class="emphasis"><em>Type:</em></span>
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.recoll.package"></a><a class="term" href="options.html#opt-services.recoll.package"><code class="option">services.recoll.package</code></a></span></dt><dd><p>Package providing the <span class="command"><strong>recoll</strong></span> binary.</p><p><span class="emphasis"><em>Type:</em></span>
 package</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">pkgs.recoll</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">(pkgs.recoll.override { withGui = false; })</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/recoll.nix" target="_top">
 &lt;home-manager/modules/services/recoll.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.recoll.configDir"></a><a class="term" href="options.html#opt-services.recoll.configDir"><code class="option">services.recoll.configDir</code></a></span></dt><dd><p>The directory to contain Recoll configuration files. This will be set
-as <code class="literal">RECOLL_CONFDIR</code>.</p><p><span class="emphasis"><em>Type:</em></span>
+as <code class="envar">RECOLL_CONFDIR</code>.</p><p><span class="emphasis"><em>Type:</em></span>
 string</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">${config.home.homeDirectory}/.recoll</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">${config.xdg.configHome}/recoll</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/recoll.nix" target="_top">
 &lt;home-manager/modules/services/recoll.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.recoll.settings"></a><a class="term" href="options.html#opt-services.recoll.settings"><code class="option">services.recoll.settings</code></a></span></dt><dd><p>The configuration to be written at
-<code class="filename">${config.services.recoll.configDir}/recoll.conf</code>.</p><p>See
-<span class="citerefentry"><span class="refentrytitle">recoll</span>(5)</span> for more details about the configuration.</p><p><span class="emphasis"><em>Type:</em></span>
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.recoll.settings"></a><a class="term" href="options.html#opt-services.recoll.settings"><code class="option">services.recoll.settings</code></a></span></dt><dd><p>The configuration to be written at <code class="filename">$RECOLL_CONFDIR/recoll.conf</code>.</p><p>See <span class="citerefentry"><span class="refentrytitle">recoll.conf</span>(5)</span> for more details about the configuration.</p><p><span class="emphasis"><em>Type:</em></span>
 attribute set of (Recoll config value)</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
   nocjk = true;
@@ -14509,8 +14564,7 @@ attribute set of (Recoll config value)</p><p><span class="emphasis"><em>Default:
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/recoll.nix" target="_top">
 &lt;home-manager/modules/services/recoll.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.recoll.startAt"></a><a class="term" href="options.html#opt-services.recoll.startAt"><code class="option">services.recoll.startAt</code></a></span></dt><dd><p>When or how often the periodic update should run. Must be the format
-described from
-<a class="link" href="https://www.freedesktop.org/software/systemd/man/systemd.time.html" target="_top"><span class="citerefentry"><span class="refentrytitle">systemd.time</span>(7)</span></a>.</p><p><span class="emphasis"><em>Type:</em></span>
+described from <a class="link" href="https://www.freedesktop.org/software/systemd/man/systemd.time.html" target="_top"><span class="citerefentry"><span class="refentrytitle">systemd.time</span>(7)</span></a>.</p><p><span class="emphasis"><em>Type:</em></span>
 string</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">"hourly"</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">"00/2:00"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/recoll.nix" target="_top">
