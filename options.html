@@ -3407,9 +3407,19 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 YAML value</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/borgmatic.nix" target="_top">
 &lt;home-manager/modules/programs/borgmatic.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.borgmatic.backups._name_.location.repositories"></a><a class="term" href="options.html#opt-programs.borgmatic.backups._name_.location.repositories"><code class="option">programs.borgmatic.backups.&lt;name&gt;.location.repositories</code></a></span></dt><dd><p>Paths to repositories.</p><p><span class="emphasis"><em>Type:</em></span>
-list of string</p><p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">["ssh://myuser@myrepo.myserver.com/./repo"]</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/borgmatic.nix" target="_top">
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.borgmatic.backups._name_.location.repositories"></a><a class="term" href="options.html#opt-programs.borgmatic.backups._name_.location.repositories"><code class="option">programs.borgmatic.backups.&lt;name&gt;.location.repositories</code></a></span></dt><dd><p>List of local or remote repositories with paths and optional labels.</p><p><span class="emphasis"><em>Type:</em></span>
+list of (string or (submodule))</p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">[
+  {
+    "path" = "ssh://myuser@myrepo.myserver.com/./repo";
+    "label" = "server";
+  }
+  {
+    "path" = "/var/lib/backups/local.borg";
+    "label" = "local";
+  }
+]
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/borgmatic.nix" target="_top">
 &lt;home-manager/modules/programs/borgmatic.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.borgmatic.backups._name_.location.sourceDirectories"></a><a class="term" href="options.html#opt-programs.borgmatic.backups._name_.location.sourceDirectories"><code class="option">programs.borgmatic.backups.&lt;name&gt;.location.sourceDirectories</code></a></span></dt><dd><p>Directories to backup.</p><p><span class="emphasis"><em>Type:</em></span>
 list of string</p><p><span class="emphasis"><em>Example:</em></span>
@@ -5186,6 +5196,15 @@ attribute set of (string or boolean or list of string)</p><p><span class="emphas
 
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gpg.nix" target="_top">
 &lt;home-manager/modules/programs/gpg.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.granted.enable"></a><a class="term" href="options.html#opt-programs.granted.enable"><code class="option">programs.granted.enable</code></a></span></dt><dd><p>Whether to enable granted.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/granted.nix" target="_top">
+&lt;home-manager/modules/programs/granted.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.granted.enableZshIntegration"></a><a class="term" href="options.html#opt-programs.granted.enableZshIntegration"><code class="option">programs.granted.enableZshIntegration</code></a></span></dt><dd><p>Whether to enable Zsh integration.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/granted.nix" target="_top">
+&lt;home-manager/modules/programs/granted.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.havoc.enable"></a><a class="term" href="options.html#opt-programs.havoc.enable"><code class="option">programs.havoc.enable</code></a></span></dt><dd><p>Whether to enable Havoc terminal.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
@@ -6132,6 +6151,24 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.k9s.package"></a><a class="term" href="options.html#opt-programs.k9s.package"><code class="option">programs.k9s.package</code></a></span></dt><dd><p>The k9s package to use.</p><p><span class="emphasis"><em>Type:</em></span>
 package</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">pkgs.k9s</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/k9s.nix" target="_top">
+&lt;home-manager/modules/programs/k9s.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.k9s.hotkey"></a><a class="term" href="options.html#opt-programs.k9s.hotkey"><code class="option">programs.k9s.hotkey</code></a></span></dt><dd><p>hotkeys written to
+<code class="filename">$XDG_CONFIG_HOME/k9s/hotkey.yml</code>. See
+<a class="link" href="https://k9scli.io/topics/hotkeys/" target="_top">https://k9scli.io/topics/hotkeys/</a>
+for supported values.</p><p><span class="emphasis"><em>Type:</em></span>
+YAML value</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">hotkey = {
+  # Make sure this is camel case
+  hotKey = {
+    shift-0 = {
+      shortCut = "Shift-0";
+      description = "Viewing pods";
+      command = "pods";
+    };
+  };
+};
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/k9s.nix" target="_top">
 &lt;home-manager/modules/programs/k9s.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.k9s.settings"></a><a class="term" href="options.html#opt-programs.k9s.settings"><code class="option">programs.k9s.settings</code></a></span></dt><dd><p>Configuration written to
 <code class="filename">$XDG_CONFIG_HOME/k9s/config.yml</code>. See
@@ -9901,6 +9938,88 @@ attribute set of (boolean or floating point number or signed integer or string)<
 }
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/swaylock.nix" target="_top">
 &lt;home-manager/modules/programs/swaylock.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.swayr.enable"></a><a class="term" href="options.html#opt-programs.swayr.enable"><code class="option">programs.swayr.enable</code></a></span></dt><dd><p>Whether to enable the swayr service.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/swayr.nix" target="_top">
+&lt;home-manager/modules/programs/swayr.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.swayr.package"></a><a class="term" href="options.html#opt-programs.swayr.package"><code class="option">programs.swayr.package</code></a></span></dt><dd><p>swayr package to use.</p><p><span class="emphasis"><em>Type:</em></span>
+package</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.swayr</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/swayr.nix" target="_top">
+&lt;home-manager/modules/programs/swayr.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.swayr.extraConfig"></a><a class="term" href="options.html#opt-programs.swayr.extraConfig"><code class="option">programs.swayr.extraConfig</code></a></span></dt><dd><p>Extra configuration lines to append to the swayr
+configuration file.</p><p><span class="emphasis"><em>Type:</em></span>
+strings concatenated with “\n”</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">""</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/swayr.nix" target="_top">
+&lt;home-manager/modules/programs/swayr.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.swayr.settings"></a><a class="term" href="options.html#opt-programs.swayr.settings"><code class="option">programs.swayr.settings</code></a></span></dt><dd><p>Configuration included in <code class="literal">config.toml</code>.
+For available options see <a class="link" href="https://git.sr.ht/~tsdh/swayr#swayr-configuration" target="_top">https://git.sr.ht/~tsdh/swayr#swayr-configuration</a></p><p><span class="emphasis"><em>Type:</em></span>
+null or TOML value</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">menu = {
+  executable = "${pkgs.wofi}/bin/wofi";
+  args = [
+    "--show=dmenu"
+    "--allow-markup"
+    "--allow-images"
+    "--insensitive"
+    "--cache-file=/dev/null"
+    "--parse-search"
+    "--height=40%"
+    "--prompt={prompt}"
+  ];
+};
+
+format = {
+  output_format = "{indent}&lt;b&gt;Output {name}&lt;/b&gt;    &lt;span alpha=\"20000\"&gt;({id})&lt;/span&gt;";
+  workspace_format = "{indent}&lt;b&gt;Workspace {name} [{layout}]&lt;/b&gt; on output {output_name}    &lt;span alpha=\"20000\"&gt;({id})&lt;/span&gt;";
+  container_format = "{indent}&lt;b&gt;Container [{layout}]&lt;/b&gt; &lt;i&gt;{marks}&lt;/i&gt; on workspace {workspace_name}    &lt;span alpha=\"20000\"&gt;({id})&lt;/span&gt;";
+  window_format = "img:{app_icon}:text:{indent}&lt;i&gt;{app_name}&lt;/i&gt; — {urgency_start}&lt;b&gt;“{title}”&lt;/b&gt;{urgency_end} &lt;i&gt;{marks}&lt;/i&gt; on workspace {workspace_name} / {output_name}    &lt;span alpha=\"20000\"&gt;({id})&lt;/span&gt;";
+  indent = "    ";
+  urgency_start = "&lt;span background=\"darkred\" foreground=\"yellow\"&gt;";
+  urgency_end = "&lt;/span&gt;";
+  html_escape = true;
+};
+
+layout = {
+  auto_tile = false;
+  auto_tile_min_window_width_per_output_width = [
+    [ 800 400 ]
+    [ 1024 500 ]
+    [ 1280 600 ]
+    [ 1400 680 ]
+    [ 1440 700 ]
+    [ 1600 780 ]
+    [ 1680 780 ]
+    [ 1920 920 ]
+    [ 2048 980 ]
+    [ 2560 1000 ]
+    [ 3440 1200 ]
+    [ 3840 1280 ]
+    [ 4096 1400 ]
+    [ 4480 1600 ]
+    [ 7680 2400 ]
+  ];
+};
+
+focus = {
+  lockin_delay = 750;
+};
+
+misc = {
+  seq_inhibit = false;
+};
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/swayr.nix" target="_top">
+&lt;home-manager/modules/programs/swayr.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.swayr.systemd.enable"></a><a class="term" href="options.html#opt-programs.swayr.systemd.enable"><code class="option">programs.swayr.systemd.enable</code></a></span></dt><dd><p>Whether to enable swayr systemd integration.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/swayr.nix" target="_top">
+&lt;home-manager/modules/programs/swayr.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.swayr.systemd.target"></a><a class="term" href="options.html#opt-programs.swayr.systemd.target"><code class="option">programs.swayr.systemd.target</code></a></span></dt><dd><p>Systemd target to bind to.</p><p><span class="emphasis"><em>Type:</em></span>
+string</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">"graphical-session.target"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/swayr.nix" target="_top">
+&lt;home-manager/modules/programs/swayr.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.taskwarrior.enable"></a><a class="term" href="options.html#opt-programs.taskwarrior.enable"><code class="option">programs.taskwarrior.enable</code></a></span></dt><dd><p>Whether to enable Task Warrior.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
@@ -10218,6 +10337,11 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 &lt;home-manager/modules/programs/thefuck.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.thefuck.enableBashIntegration"></a><a class="term" href="options.html#opt-programs.thefuck.enableBashIntegration"><code class="option">programs.thefuck.enableBashIntegration</code></a></span></dt><dd><p>Whether to enable Bash integration.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thefuck.nix" target="_top">
+&lt;home-manager/modules/programs/thefuck.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.thefuck.enableFishIntegration"></a><a class="term" href="options.html#opt-programs.thefuck.enableFishIntegration"><code class="option">programs.thefuck.enableFishIntegration</code></a></span></dt><dd><p>Whether to enable Fish integration.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thefuck.nix" target="_top">
 &lt;home-manager/modules/programs/thefuck.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.thefuck.enableInstantMode"></a><a class="term" href="options.html#opt-programs.thefuck.enableInstantMode"><code class="option">programs.thefuck.enableInstantMode</code></a></span></dt><dd><p>Whether to enable thefuck’s experimental instant mode.</p><p><span class="emphasis"><em>Type:</em></span>
@@ -14820,6 +14944,7 @@ list of string</p><p><span class="emphasis"><em>Default:</em></span>
 &lt;home-manager/modules/services/swayidle.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.swayidle.systemdTarget"></a><a class="term" href="options.html#opt-services.swayidle.systemdTarget"><code class="option">services.swayidle.systemdTarget</code></a></span></dt><dd><p>Systemd target to bind to.</p><p><span class="emphasis"><em>Type:</em></span>
 string</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">"graphical-session.target"</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">"sway-session.target"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/services/swayidle.nix" target="_top">
 &lt;home-manager/modules/services/swayidle.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.swayidle.timeouts"></a><a class="term" href="options.html#opt-services.swayidle.timeouts"><code class="option">services.swayidle.timeouts</code></a></span></dt><dd><p>List of commands to run after idle timeout.</p><p><span class="emphasis"><em>Type:</em></span>
@@ -15722,6 +15847,31 @@ attribute set of (signed integer or string)</p><p><span class="emphasis"><em>Def
 <code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
   EDITOR = "vim";
 }
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/systemd.nix" target="_top">
+&lt;home-manager/modules/systemd.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-systemd.user.settings"></a><a class="term" href="options.html#opt-systemd.user.settings"><code class="option">systemd.user.settings</code></a></span></dt><dd><p>Extra config options for user session service manager. See <a class="link" href="https://www.freedesktop.org/software/systemd/man/systemd-user.conf.html" target="_top"><span class="citerefentry"><span class="refentrytitle">systemd-user.conf</span>(5)</span></a> for
+available options.</p><p><span class="emphasis"><em>Type:</em></span>
+attribute set of attribute set of (INI atom (null, bool, int, float or string) or a list of them for duplicate keys)</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  Manager.DefaultCPUAccounting = true;
+}
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/systemd.nix" target="_top">
+&lt;home-manager/modules/systemd.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-systemd.user.settings.Manager.DefaultEnvironment"></a><a class="term" href="options.html#opt-systemd.user.settings.Manager.DefaultEnvironment"><code class="option">systemd.user.settings.Manager.DefaultEnvironment</code></a></span></dt><dd><p>Configures environment variables passed to all executed processes.</p><p><span class="emphasis"><em>Type:</em></span>
+attribute set of (null or string or path or package)</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  PATH = "%u/bin:%u/.cargo/bin";
+}
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/systemd.nix" target="_top">
+&lt;home-manager/modules/systemd.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-systemd.user.settings.Manager.ManagerEnvironment"></a><a class="term" href="options.html#opt-systemd.user.settings.Manager.ManagerEnvironment"><code class="option">systemd.user.settings.Manager.ManagerEnvironment</code></a></span></dt><dd><p>Sets environment variables just for the manager process itself.</p><p><span class="emphasis"><em>Type:</em></span>
+attribute set of (null or string or path or package)</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  PATH = "%u/bin:%u/.cargo/bin";
+}
+
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/systemd.nix" target="_top">
 &lt;home-manager/modules/systemd.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-systemd.user.slices"></a><a class="term" href="options.html#opt-systemd.user.slices"><code class="option">systemd.user.slices</code></a></span></dt><dd><p>Definition of systemd per-user slice units. Attributes are
