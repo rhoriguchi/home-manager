@@ -3241,7 +3241,7 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/bat.nix" target="_top">
 &lt;home-manager/modules/programs/bat.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.bat.config"></a><a class="term" href="options.html#opt-programs.bat.config"><code class="option">programs.bat.config</code></a></span></dt><dd><p>Bat configuration.</p><p><span class="emphasis"><em>Type:</em></span>
-attribute set of (string or list of string)</p><p><span class="emphasis"><em>Default:</em></span>
+attribute set of (string or list of string or boolean)</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
   map-syntax = [
     "*.jenkinsfile:Groovy"
@@ -4116,7 +4116,7 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.package"></a><a class="term" href="options.html#opt-programs.firefox.package"><code class="option">programs.firefox.package</code></a></span></dt><dd><p>The Firefox package to use. If state version ≥ 19.09 then
 this should be a wrapped Firefox package. For earlier state
 versions it should be an unwrapped Firefox package.
-Set to &lt;literal&gt;null&lt;/literal&gt; to disable installing Firefox.</p><p><span class="emphasis"><em>Type:</em></span>
+Set to <code class="literal">null</code> to disable installing Firefox.</p><p><span class="emphasis"><em>Type:</em></span>
 null or package</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">pkgs.firefox</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">pkgs.firefox.override {
   # See nixpkgs' firefox/wrapper.nix to check which options you can use
@@ -4128,6 +4128,17 @@ null or package</p><p><span class="emphasis"><em>Default:</em></span>
   };
 }
 
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix" target="_top">
+&lt;home-manager/modules/programs/firefox.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.finalPackage"></a><a class="term" href="options.html#opt-programs.firefox.finalPackage"><code class="option">programs.firefox.finalPackage</code></a></span></dt><dd><p>Resulting Firefox package.</p><p><span class="emphasis"><em>Type:</em></span>
+null or package <span class="emphasis"><em>(read only)</em></span></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix" target="_top">
+&lt;home-manager/modules/programs/firefox.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.policies"></a><a class="term" href="options.html#opt-programs.firefox.policies"><code class="option">programs.firefox.policies</code></a></span></dt><dd><p><a class="link" href="https://mozilla.github.io/policy-templates/" target="_top">See list of policies</a>.</p><p><span class="emphasis"><em>Type:</em></span>
+attribute set of (JSON value)</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  BlockAboutConfig = true;
+  DefaultDownloadDirectory = "\${home}/Downloads";
+}
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix" target="_top">
 &lt;home-manager/modules/programs/firefox.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles"></a><a class="term" href="options.html#opt-programs.firefox.profiles"><code class="option">programs.firefox.profiles</code></a></span></dt><dd><p>Attribute set of Firefox profiles.</p><p><span class="emphasis"><em>Type:</em></span>
@@ -4166,6 +4177,41 @@ previously existing bookmarks!</p><p><span class="emphasis"><em>Type:</em></span
 ]
 
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix" target="_top">
+&lt;home-manager/modules/programs/firefox.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.containers"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.containers"><code class="option">programs.firefox.profiles.&lt;name&gt;.containers</code></a></span></dt><dd><p>Attribute set of container configurations. See
+<a class="link" href="https://support.mozilla.org/en-US/kb/containers" target="_top">Multi-Account
+Containers</a>
+for more information.</p><p><span class="emphasis"><em>Type:</em></span>
+attribute set of (submodule)</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  dangerous = {
+    color = "red";
+    icon = "fruit";
+    id = 2;
+  };
+  shopping = {
+    color = "blue";
+    icon = "cart";
+    id = 1;
+  };
+}
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix" target="_top">
+&lt;home-manager/modules/programs/firefox.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.containers._name_.color"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.containers._name_.color"><code class="option">programs.firefox.profiles.&lt;name&gt;.containers.&lt;name&gt;.color</code></a></span></dt><dd><p>Container color.</p><p><span class="emphasis"><em>Type:</em></span>
+one of “blue”, “turquoise”, “green”, “yellow”, “orange”, “red”, “pink”, “purple”, “toolbar”</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">"pink"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix" target="_top">
+&lt;home-manager/modules/programs/firefox.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.containers._name_.icon"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.containers._name_.icon"><code class="option">programs.firefox.profiles.&lt;name&gt;.containers.&lt;name&gt;.icon</code></a></span></dt><dd><p>Container icon.</p><p><span class="emphasis"><em>Type:</em></span>
+one of “briefcase”, “cart”, “circle”, “dollar”, “fence”, “fingerprint”, “gift”, “vacation”, “food”, “fruit”, “pet”, “tree”, “chill”</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">"fruit"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix" target="_top">
+&lt;home-manager/modules/programs/firefox.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.containers._name_.id"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.containers._name_.id"><code class="option">programs.firefox.profiles.&lt;name&gt;.containers.&lt;name&gt;.id</code></a></span></dt><dd><p>Container ID. This should be set to a unique number per container in this profile.</p><p><span class="emphasis"><em>Type:</em></span>
+unsigned integer, meaning &gt;=0</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">0</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix" target="_top">
+&lt;home-manager/modules/programs/firefox.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.containers._name_.name"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.containers._name_.name"><code class="option">programs.firefox.profiles.&lt;name&gt;.containers.&lt;name&gt;.name</code></a></span></dt><dd><p>Container name, e.g., shopping.</p><p><span class="emphasis"><em>Type:</em></span>
+string</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">"‹name›"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix" target="_top">
 &lt;home-manager/modules/programs/firefox.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.extensions"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.extensions"><code class="option">programs.firefox.profiles.&lt;name&gt;.extensions</code></a></span></dt><dd><p>List of Firefox add-on packages to install for this profile.
 Some pre-packaged add-ons are accessible from the
@@ -4259,6 +4305,11 @@ list of string</p><p><span class="emphasis"><em>Default:</em></span>
   "Google"
 ]
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix" target="_top">
+&lt;home-manager/modules/programs/firefox.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.search.privateDefault"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.search.privateDefault"><code class="option">programs.firefox.profiles.&lt;name&gt;.search.privateDefault</code></a></span></dt><dd><p>The default search engine used in the Private Browsing.</p><p><span class="emphasis"><em>Type:</em></span>
+null or string</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">"DuckDuckGo"</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix" target="_top">
 &lt;home-manager/modules/programs/firefox.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.firefox.profiles._name_.settings"></a><a class="term" href="options.html#opt-programs.firefox.profiles._name_.settings"><code class="option">programs.firefox.profiles.&lt;name&gt;.settings</code></a></span></dt><dd><p>Attribute set of Firefox preferences.</p><p>Firefox only supports int, bool, and string types for
 preferences, but home-manager will automatically
@@ -6152,10 +6203,18 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 package</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">pkgs.k9s</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/k9s.nix" target="_top">
 &lt;home-manager/modules/programs/k9s.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.k9s.hotkey"></a><a class="term" href="options.html#opt-programs.k9s.hotkey"><code class="option">programs.k9s.hotkey</code></a></span></dt><dd><p>hotkeys written to
-<code class="filename">$XDG_CONFIG_HOME/k9s/hotkey.yml</code>. See
-<a class="link" href="https://k9scli.io/topics/hotkeys/" target="_top">https://k9scli.io/topics/hotkeys/</a>
-for supported values.</p><p><span class="emphasis"><em>Type:</em></span>
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.k9s.aliases"></a><a class="term" href="options.html#opt-programs.k9s.aliases"><code class="option">programs.k9s.aliases</code></a></span></dt><dd><p>Aliases written to <code class="filename">$XDG_CONFIG_HOME/k9s/aliases.yml</code>. See
+<a class="link" href="https://k9scli.io/topics/aliases/" target="_top">https://k9scli.io/topics/aliases/</a> for supported values.</p><p><span class="emphasis"><em>Type:</em></span>
+YAML value</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">alias = {
+  # Use pp as an alias for Pod
+  pp = "v1/pods";
+};
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/k9s.nix" target="_top">
+&lt;home-manager/modules/programs/k9s.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.k9s.hotkey"></a><a class="term" href="options.html#opt-programs.k9s.hotkey"><code class="option">programs.k9s.hotkey</code></a></span></dt><dd><p>Hotkeys written to <code class="filename">$XDG_CONFIG_HOME/k9s/hotkey.yml</code>. See
+<a class="link" href="https://k9scli.io/topics/hotkeys/" target="_top">https://k9scli.io/topics/hotkeys/</a> for supported values.</p><p><span class="emphasis"><em>Type:</em></span>
 YAML value</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">hotkey = {
   # Make sure this is camel case
@@ -6170,10 +6229,34 @@ YAML value</p><p><span class="emphasis"><em>Default:</em></span>
 
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/k9s.nix" target="_top">
 &lt;home-manager/modules/programs/k9s.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.k9s.settings"></a><a class="term" href="options.html#opt-programs.k9s.settings"><code class="option">programs.k9s.settings</code></a></span></dt><dd><p>Configuration written to
-<code class="filename">$XDG_CONFIG_HOME/k9s/config.yml</code>. See
-<a class="link" href="https://k9scli.io/topics/config/" target="_top">https://k9scli.io/topics/config/</a>
-for supported values.</p><p><span class="emphasis"><em>Type:</em></span>
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.k9s.plugin"></a><a class="term" href="options.html#opt-programs.k9s.plugin"><code class="option">programs.k9s.plugin</code></a></span></dt><dd><p>Plugins written to <code class="filename">$XDG_CONFIG_HOME/k9s/plugin.yml</code>. See
+<a class="link" href="https://k9scli.io/topics/plugins/" target="_top">https://k9scli.io/topics/plugins/</a> for supported values.</p><p><span class="emphasis"><em>Type:</em></span>
+YAML value</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">plugin = {
+  # Defines a plugin to provide a `ctrl-l` shortcut to
+  # tail the logs while in pod view.
+  fred = {
+    shortCut = "Ctrl-L";
+    description = "Pod logs";
+    scopes = [ "po" ];
+    command = "kubectl";
+    background = false;
+    args = [
+      "logs"
+      "-f"
+      "$NAME"
+      "-n"
+      "$NAMESPACE"
+      "--context"
+      "$CLUSTER"
+    ];
+  };
+};
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/k9s.nix" target="_top">
+&lt;home-manager/modules/programs/k9s.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.k9s.settings"></a><a class="term" href="options.html#opt-programs.k9s.settings"><code class="option">programs.k9s.settings</code></a></span></dt><dd><p>Configuration written to <code class="filename">$XDG_CONFIG_HOME/k9s/config.yml</code>. See
+<a class="link" href="https://k9scli.io/topics/config/" target="_top">https://k9scli.io/topics/config/</a> for supported values.</p><p><span class="emphasis"><em>Type:</em></span>
 YAML value</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">k9s = {
   refreshRate = 2;
@@ -6181,14 +6264,33 @@ YAML value</p><p><span class="emphasis"><em>Default:</em></span>
 
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/k9s.nix" target="_top">
 &lt;home-manager/modules/programs/k9s.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.k9s.skin"></a><a class="term" href="options.html#opt-programs.k9s.skin"><code class="option">programs.k9s.skin</code></a></span></dt><dd><p>Skin written to
-<code class="filename">$XDG_CONFIG_HOME/k9s/skin.yml</code>. See
-<a class="link" href="https://k9scli.io/topics/skins/" target="_top">https://k9scli.io/topics/skins/</a>
-for supported values.</p><p><span class="emphasis"><em>Type:</em></span>
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.k9s.skin"></a><a class="term" href="options.html#opt-programs.k9s.skin"><code class="option">programs.k9s.skin</code></a></span></dt><dd><p>Skin written to <code class="filename">$XDG_CONFIG_HOME/k9s/skin.yml</code>. See
+<a class="link" href="https://k9scli.io/topics/skins/" target="_top">https://k9scli.io/topics/skins/</a> for supported values.</p><p><span class="emphasis"><em>Type:</em></span>
 YAML value</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">k9s = {
   body = {
     fgColor = "dodgerblue";
+  };
+};
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/k9s.nix" target="_top">
+&lt;home-manager/modules/programs/k9s.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.k9s.views"></a><a class="term" href="options.html#opt-programs.k9s.views"><code class="option">programs.k9s.views</code></a></span></dt><dd><p>Resource column views written to <code class="filename">$XDG_CONFIG_HOME/k9s/views.yml</code>.
+See <a class="link" href="https://k9scli.io/topics/columns/" target="_top">https://k9scli.io/topics/columns/</a> for supported values.</p><p><span class="emphasis"><em>Type:</em></span>
+YAML value</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">k9s = {
+  views = {
+    "v1/pods" = {
+      columns = [
+        "AGE"
+        "NAMESPACE"
+        "NAME"
+        "IP"
+        "NODE"
+        "STATUS"
+        "READY"
+      ];
+    };
   };
 };
 
@@ -8284,6 +8386,46 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 package</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">pkgs.opam</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/opam.nix" target="_top">
 &lt;home-manager/modules/programs/opam.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.openstackclient.enable"></a><a class="term" href="options.html#opt-programs.openstackclient.enable"><code class="option">programs.openstackclient.enable</code></a></span></dt><dd><p>Whether to enable OpenStack command-line client.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/openstackclient.nix" target="_top">
+&lt;home-manager/modules/programs/openstackclient.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.openstackclient.package"></a><a class="term" href="options.html#opt-programs.openstackclient.package"><code class="option">programs.openstackclient.package</code></a></span></dt><dd><p>The openstackclient package to use.</p><p><span class="emphasis"><em>Type:</em></span>
+package</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.openstackclient</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/openstackclient.nix" target="_top">
+&lt;home-manager/modules/programs/openstackclient.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.openstackclient.clouds"></a><a class="term" href="options.html#opt-programs.openstackclient.clouds"><code class="option">programs.openstackclient.clouds</code></a></span></dt><dd><p>Configuration needed to connect to one or more clouds.</p><p>Do not include passwords here as they will be publicly readable in the Nix store.
+Configuration written to <code class="filename">$XDG_CONFIG_HOME/openstack/clouds.yaml</code>.
+See <a class="link" href="https://docs.openstack.org/python-openstackclient/latest/configuration/index.html#clouds-yaml" target="_top">https://docs.openstack.org/python-openstackclient/latest/configuration/index.html#clouds-yaml</a>.</p><p><span class="emphasis"><em>Type:</em></span>
+YAML value</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  my-infra = {
+    cloud = "example-cloud";
+    auth = {
+      project_id = "0123456789abcdef0123456789abcdef";
+      username = "openstack";
+    };
+    region_name = "XXX";
+    interface = "internal";
+  };
+}
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/openstackclient.nix" target="_top">
+&lt;home-manager/modules/programs/openstackclient.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.openstackclient.publicClouds"></a><a class="term" href="options.html#opt-programs.openstackclient.publicClouds"><code class="option">programs.openstackclient.publicClouds</code></a></span></dt><dd><p>Public information about clouds.</p><p>Configuration written to <code class="filename">$XDG_CONFIG_HOME/openstack/clouds-public.yaml</code>.
+See <a class="link" href="https://docs.openstack.org/python-openstackclient/latest/configuration/index.html#clouds-public-yaml" target="_top">https://docs.openstack.org/python-openstackclient/latest/configuration/index.html#clouds-public-yaml</a>.</p><p><span class="emphasis"><em>Type:</em></span>
+YAML value</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  example-cloud = {
+    auth = {
+      auth_url = "https://identity.cloud.example.com/v2.0";
+    };
+  };
+};
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/openstackclient.nix" target="_top">
+&lt;home-manager/modules/programs/openstackclient.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.pandoc.enable"></a><a class="term" href="options.html#opt-programs.pandoc.enable"><code class="option">programs.pandoc.enable</code></a></span></dt><dd><p>Whether to enable pandoc.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
@@ -9181,6 +9323,28 @@ settings = {
 
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rtx.nix" target="_top">
 &lt;home-manager/modules/programs/rtx.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.ruff.enable"></a><a class="term" href="options.html#opt-programs.ruff.enable"><code class="option">programs.ruff.enable</code></a></span></dt><dd><p>Whether to enable ruff, an extremely fast Python linter and code formatter, written in Rust.</p><p><span class="emphasis"><em>Type:</em></span>
+boolean</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ruff.nix" target="_top">
+&lt;home-manager/modules/programs/ruff.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.ruff.package"></a><a class="term" href="options.html#opt-programs.ruff.package"><code class="option">programs.ruff.package</code></a></span></dt><dd><p>The ruff package to use.</p><p><span class="emphasis"><em>Type:</em></span>
+package</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.ruff</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ruff.nix" target="_top">
+&lt;home-manager/modules/programs/ruff.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.ruff.settings"></a><a class="term" href="options.html#opt-programs.ruff.settings"><code class="option">programs.ruff.settings</code></a></span></dt><dd><p>Ruff configuration.
+For available settings see <a class="link" href="https://docs.astral.sh/ruff/settings" target="_top">https://docs.astral.sh/ruff/settings</a>.</p><p><span class="emphasis"><em>Type:</em></span>
+TOML value</p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  line-length = 100;
+  per-file-ignores = { "__init__.py" = [ "F401" ]; };
+  lint = {
+    select = [ "E4" "E7" "E9" "F" ];
+    ignore = [ ];
+  };
+}
+
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ruff.nix" target="_top">
+&lt;home-manager/modules/programs/ruff.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.sagemath.enable"></a><a class="term" href="options.html#opt-programs.sagemath.enable"><code class="option">programs.sagemath.enable</code></a></span></dt><dd><p>Whether to enable SageMath, a mathematics software system.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
@@ -12218,10 +12382,21 @@ boolean</p><p><span class="emphasis"><em>Default:</em></span>
 package</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">pkgs.zsh-syntax-highlighting</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh.nix" target="_top">
 &lt;home-manager/modules/programs/zsh.nix&gt;
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.zsh.syntaxHighlighting.highlighters"></a><a class="term" href="options.html#opt-programs.zsh.syntaxHighlighting.highlighters"><code class="option">programs.zsh.syntaxHighlighting.highlighters</code></a></span></dt><dd><p>Highlighters to enable
+See the list of highlighters: <a class="link" href="https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md" target="_top">https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md</a></p><p><span class="emphasis"><em>Type:</em></span>
+list of string</p><p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[ ]</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">[
+  "brackets"
+]
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh.nix" target="_top">
+&lt;home-manager/modules/programs/zsh.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.zsh.syntaxHighlighting.styles"></a><a class="term" href="options.html#opt-programs.zsh.syntaxHighlighting.styles"><code class="option">programs.zsh.syntaxHighlighting.styles</code></a></span></dt><dd><p>Custom styles for syntax highlighting.
 See each highlighter’s options: <a class="link" href="https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md" target="_top">https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md</a></p><p><span class="emphasis"><em>Type:</em></span>
 attribute set of string</p><p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">{ }</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh.nix" target="_top">
+<code class="literal">{ }</code></p><p><span class="emphasis"><em>Example:</em></span></p><pre class="programlisting">{
+  comment = "fg=black,bold";
+}
+</pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh.nix" target="_top">
 &lt;home-manager/modules/programs/zsh.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-programs.zsh.zplug.enable"></a><a class="term" href="options.html#opt-programs.zsh.zplug.enable"><code class="option">programs.zsh.zplug.enable</code></a></span></dt><dd><p>Whether to enable zplug - a zsh plugin manager.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
@@ -12258,22 +12433,25 @@ attribute set of string</p><p><span class="emphasis"><em>Default:</em></span>
 }
 </pre><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh/zsh-abbr.nix" target="_top">
 &lt;home-manager/modules/programs/zsh/zsh-abbr.nix&gt;
-</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-qt.enable"></a><a class="term" href="options.html#opt-qt.enable"><code class="option">qt.enable</code></a></span></dt><dd><p>Whether to enable Qt 4, 5 and 6 configuration.</p><p><span class="emphasis"><em>Type:</em></span>
+</a></code></td></tr></table></dd><dt><span class="term"><a id="opt-qt.enable"></a><a class="term" href="options.html#opt-qt.enable"><code class="option">qt.enable</code></a></span></dt><dd><p>Whether to enable Qt 5 and 6 configuration.</p><p><span class="emphasis"><em>Type:</em></span>
 boolean</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">true</code></p><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/misc/qt.nix" target="_top">
 &lt;home-manager/modules/misc/qt.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-qt.platformTheme"></a><a class="term" href="options.html#opt-qt.platformTheme"><code class="option">qt.platformTheme</code></a></span></dt><dd><p>Platform theme to use for Qt applications.</p><p>The options are</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="literal">gtk</code></span></dt><dd><p>Use GTK theme with
-<a class="link" href="https://github.com/qt/qtstyleplugins" target="_top"><code class="literal">qtstyleplugins</code></a></p></dd><dt><span class="term"><code class="literal">gnome</code></span></dt><dd><p>Use GNOME theme with
-<a class="link" href="https://github.com/FedoraQt/QGnomePlatform" target="_top"><code class="literal">qgnomeplatform</code></a></p></dd><dt><span class="term"><code class="literal">qtct</code></span></dt><dd><p>Use Qt style set using
+<a class="link" href="https://github.com/qt/qtstyleplugins" target="_top"><code class="literal">qtstyleplugins</code></a></p></dd><dt><span class="term"><code class="literal">gtk3</code></span></dt><dd><p>Use <a class="link" href="https://github.com/qt/qtbase/tree/dev/src/plugins/platformthemes/gtk3" target="_top">GTK3 integration</a>
+for file picker dialogs, font and theme configuration</p></dd><dt><span class="term"><code class="literal">gnome</code></span></dt><dd><p>Use GNOME theme with
+<a class="link" href="https://github.com/FedoraQt/QGnomePlatform" target="_top"><code class="literal">qgnomeplatform</code></a></p></dd><dt><span class="term"><code class="literal">lxqt</code></span></dt><dd><p>Use LXQt theme style set using the
+<a class="link" href="https://github.com/lxqt/lxqt-config" target="_top"><code class="literal">lxqt-config-appearance</code></a>
+application</p></dd><dt><span class="term"><code class="literal">qtct</code></span></dt><dd><p>Use Qt style set using
 <a class="link" href="https://github.com/desktop-app/qt5ct" target="_top"><code class="literal">qt5ct</code></a>
 and <a class="link" href="https://github.com/trialuser02/qt6ct" target="_top"><code class="literal">qt6ct</code></a>
 applications</p></dd><dt><span class="term"><code class="literal">kde</code></span></dt><dd><p>Use Qt settings from Plasma</p></dd></dl></div><p><span class="emphasis"><em>Type:</em></span>
-null or one of “gtk”, “gnome”, “qtct”, “kde”</p><p><span class="emphasis"><em>Default:</em></span>
+null or one of “gtk”, “gtk3”, “gnome”, “lxqt”, “qtct”, “kde”</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">null</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">"gnome"</code></p><p>
   <span class="emphasis"><em>Related packages:</em></span>
-</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=qgnomeplatform&amp;sort=relevance&amp;query=qgnomeplatform" target="_top"><code class="literal">pkgs.qgnomeplatform</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=libsForQt5.qtstyleplugins&amp;sort=relevance&amp;query=libsForQt5.qtstyleplugins" target="_top"><code class="literal">pkgs.libsForQt5.qtstyleplugins</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=libsForQt5.qt5ct&amp;sort=relevance&amp;query=libsForQt5.qt5ct" target="_top"><code class="literal">pkgs.libsForQt5.qt5ct</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=qt6Packages.qt6ct&amp;sort=relevance&amp;query=qt6Packages.qt6ct" target="_top"><code class="literal">pkgs.qt6Packages.qt6ct</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=libsForQt5.plasma-integration&amp;sort=relevance&amp;query=libsForQt5.plasma-integration" target="_top"><code class="literal">pkgs.libsForQt5.plasma-integration</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=libsForQt5.systemsettings&amp;sort=relevance&amp;query=libsForQt5.systemsettings" target="_top"><code class="literal">pkgs.libsForQt5.systemsettings</code></a></p></li></ul></div><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/misc/qt.nix" target="_top">
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=qgnomeplatform&amp;sort=relevance&amp;query=qgnomeplatform" target="_top"><code class="literal">pkgs.qgnomeplatform</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=qgnomeplatform-qt6&amp;sort=relevance&amp;query=qgnomeplatform-qt6" target="_top"><code class="literal">pkgs.qgnomeplatform-qt6</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=libsForQt5.plasma-integration&amp;sort=relevance&amp;query=libsForQt5.plasma-integration" target="_top"><code class="literal">pkgs.libsForQt5.plasma-integration</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=libsForQt5.qt5ct&amp;sort=relevance&amp;query=libsForQt5.qt5ct" target="_top"><code class="literal">pkgs.libsForQt5.qt5ct</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=libsForQt5.qtstyleplugins&amp;sort=relevance&amp;query=libsForQt5.qtstyleplugins" target="_top"><code class="literal">pkgs.libsForQt5.qtstyleplugins</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=libsForQt5.systemsettings&amp;sort=relevance&amp;query=libsForQt5.systemsettings" target="_top"><code class="literal">pkgs.libsForQt5.systemsettings</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=lxqt.lxqt-config&amp;sort=relevance&amp;query=lxqt.lxqt-config" target="_top"><code class="literal">pkgs.lxqt.lxqt-config</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=lxqt.lxqt-qtplugin&amp;sort=relevance&amp;query=lxqt.lxqt-qtplugin" target="_top"><code class="literal">pkgs.lxqt.lxqt-qtplugin</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=qt6Packages.qt6ct&amp;sort=relevance&amp;query=qt6Packages.qt6ct" target="_top"><code class="literal">pkgs.qt6Packages.qt6ct</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=qt6Packages.qt6gtk2&amp;sort=relevance&amp;query=qt6Packages.qt6gtk2" target="_top"><code class="literal">pkgs.qt6Packages.qt6gtk2</code></a></p></li></ul></div><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/misc/qt.nix" target="_top">
 &lt;home-manager/modules/misc/qt.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-qt.style.package"></a><a class="term" href="options.html#opt-qt.style.package"><code class="option">qt.style.package</code></a></span></dt><dd><p>Theme package to be used in Qt5/Qt6 applications.
 Auto-detected from <code class="option">qt.style.name</code> if possible.</p><p><span class="emphasis"><em>Type:</em></span>
@@ -12290,7 +12468,7 @@ null or string</p><p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">null</code></p><p><span class="emphasis"><em>Example:</em></span>
 <code class="literal">"adwaita-dark"</code></p><p>
   <span class="emphasis"><em>Related packages:</em></span>
-</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=adwaita-qt&amp;sort=relevance&amp;query=adwaita-qt" target="_top"><code class="literal">pkgs.adwaita-qt</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=libsForQt5.breeze-qt5&amp;sort=relevance&amp;query=libsForQt5.breeze-qt5" target="_top"><code class="literal">pkgs.libsForQt5.breeze-qt5</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=libsForQt5.qtstyleplugins&amp;sort=relevance&amp;query=libsForQt5.qtstyleplugins" target="_top"><code class="literal">pkgs.libsForQt5.qtstyleplugins</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=libsForQt5.qtstyleplugin-kvantum&amp;sort=relevance&amp;query=libsForQt5.qtstyleplugin-kvantum" target="_top"><code class="literal">pkgs.libsForQt5.qtstyleplugin-kvantum</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=qt6Packages.qtstyleplugin-kvantum&amp;sort=relevance&amp;query=qt6Packages.qtstyleplugin-kvantum" target="_top"><code class="literal">pkgs.qt6Packages.qtstyleplugin-kvantum</code></a></p></li></ul></div><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/misc/qt.nix" target="_top">
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=adwaita-qt&amp;sort=relevance&amp;query=adwaita-qt" target="_top"><code class="literal">pkgs.adwaita-qt</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=adwaita-qt6&amp;sort=relevance&amp;query=adwaita-qt6" target="_top"><code class="literal">pkgs.adwaita-qt6</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=libsForQt5.breeze-qt5&amp;sort=relevance&amp;query=libsForQt5.breeze-qt5" target="_top"><code class="literal">pkgs.libsForQt5.breeze-qt5</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=libsForQt5.qtstyleplugin-kvantum&amp;sort=relevance&amp;query=libsForQt5.qtstyleplugin-kvantum" target="_top"><code class="literal">pkgs.libsForQt5.qtstyleplugin-kvantum</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=libsForQt5.qtstyleplugins&amp;sort=relevance&amp;query=libsForQt5.qtstyleplugins" target="_top"><code class="literal">pkgs.libsForQt5.qtstyleplugins</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=qt6Packages.qt6gtk2&amp;sort=relevance&amp;query=qt6Packages.qt6gtk2" target="_top"><code class="literal">pkgs.qt6Packages.qt6gtk2</code></a></p></li><li class="listitem"><p><a class="link" href="https://search.nixos.org/packages?show=qt6Packages.qtstyleplugin-kvantum&amp;sort=relevance&amp;query=qt6Packages.qtstyleplugin-kvantum" target="_top"><code class="literal">pkgs.qt6Packages.qtstyleplugin-kvantum</code></a></p></li></ul></div><p><span class="emphasis"><em>Declared by:</em></span></p><table border="0" summary="Simple list" class="simplelist"><tr><td><code class="filename"><a class="filename" href="https://github.com/nix-community/home-manager/blob/master/modules/misc/qt.nix" target="_top">
 &lt;home-manager/modules/misc/qt.nix&gt;
 </a></code></td></tr></table></dd><dt><span class="term"><a id="opt-services.autorandr.enable"></a><a class="term" href="options.html#opt-services.autorandr.enable"><code class="option">services.autorandr.enable</code></a></span></dt><dd><p>Whether to enable the Autorandr systemd service.
 This module is complementary to <code class="option">programs.autorandr</code>
