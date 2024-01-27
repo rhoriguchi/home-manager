@@ -7041,16 +7041,18 @@ does not modify, the state of the system and exits if an
 unexpected state is found. For example, the
 <code class="literal">checkLinkTargets</code> script block checks for
 collisions between non-managed files and files defined in
-<a class="xref" href="options.xhtml#opt-home.file"  ><code class="option">home.file</code></a>.</p><p>A script block should respect the <code class="varname">DRY_RUN</code>
-variable, if it is set then the actions taken by the script
-should be logged to standard out and not actually performed.
-The variable <code class="varname">DRY_RUN_CMD</code> is set to
-<span class="command"><strong>echo</strong></span> if dry run is enabled.</p><p>A script block should also respect the
-<code class="varname">VERBOSE</code> variable, and if set print
-information on standard out that may be useful for debugging
-any issue that may arise. The variable
-<code class="varname">VERBOSE_ARG</code> is set to
-<code class="option">--verbose</code> if verbose output is enabled.</p>
+<a class="xref" href="options.xhtml#opt-home.file"  ><code class="option">home.file</code></a>.</p><p>A script block should respect the <code class="varname">DRY_RUN</code> variable. If it is set
+then the actions taken by the script should be logged to standard out
+and not actually performed. A convenient shell function <span class="command"><strong>run</strong></span>
+is provided for activation script blocks. It is used as follows:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><span class="command"><strong>run {command}</strong></span></span></dt><dd><p>Runs the given command on live run, otherwise prints the command to
+standard output.</p></dd><dt><span class="term"><span class="command"><strong>run --silence {command}</strong></span></span></dt><dd><p>Runs the given command on live run and sends its standard and error
+output to <code class="filename">/dev/null</code>, otherwise prints the command to standard
+output.</p></dd></dl></div><p>A script block should also respect the <code class="varname">VERBOSE</code> variable, and if
+set print information on standard out that may be useful for debugging
+any issue that may arise. The variable <code class="varname">VERBOSE_ARG</code> is set to
+<code class="option">--verbose</code> if verbose output is enabled. You can also use the
+provided shell function <span class="command"><strong>verboseEcho</strong></span>, which acts as
+<span class="command"><strong>echo</strong></span> when verbose output is enabled.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 DAG of string</p>
@@ -7060,7 +7062,7 @@ DAG of string</p>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
   myActivationAction = lib.hm.dag.entryAfter [&quot;writeBoundary&quot;] &#x27;&#x27;
-    $DRY_RUN_CMD ln -s $VERBOSE_ARG \
+    run ln -s $VERBOSE_ARG \
         ${builtins.toPath ./link-me-directly} $HOME
   &#x27;&#x27;;
 }
@@ -14239,7 +14241,7 @@ package</p>
 <p>Configuration options for bemenu. See <span class="citerefentry"><span class="refentrytitle">bemenu</span>(1)</span>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-attribute set of (string or signed integer or boolean)</p>
+attribute set of (string or signed integer or floating point number or boolean)</p>
 
 <p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p>
@@ -14258,6 +14260,7 @@ attribute set of (string or signed integer or boolean)</p>
   hf = &quot;#f9e2af&quot;;
   af = &quot;#cdd6f4&quot;;
   ab = &quot;#1e1e2e&quot;;
+  width-factor = 0.3;
 }
 
 </code></pre>
@@ -17773,6 +17776,31 @@ null or package <span class="emphasis"><em>(read only)</em></span></p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.firefox.nativeMessagingHosts"></a><a class="term" href="options.xhtml#opt-programs.firefox.nativeMessagingHosts"><code class="option">programs.firefox.nativeMessagingHosts</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Additional packages containing native messaging hosts that should be
+made available to Firefox extensions.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[ ]</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix" target="_top">
+&lt;home-manager/modules/programs/firefox.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.firefox.policies"></a><a class="term" href="options.xhtml#opt-programs.firefox.policies"><code class="option">programs.firefox.policies</code>
   </a>
  </span>
@@ -19584,6 +19612,7 @@ list of string</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting">[
   &quot;https://github.com&quot;
+  &quot;https://gist.github.com&quot;
 ]
 </code></pre>
 
@@ -25743,7 +25772,7 @@ package</p>
  </span>
 </dt>
 <dd>
-<p>Aliases written to <code class="filename">$XDG_CONFIG_HOME/k9s/aliases.yml</code>. See
+<p>Aliases written to <code class="filename">$XDG_CONFIG_HOME/k9s/aliases.yaml</code>. See
 <a class="link" href="https://k9scli.io/topics/aliases/"  target="_top">https://k9scli.io/topics/aliases/</a> for supported values.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
@@ -25775,7 +25804,7 @@ YAML value</p>
  </span>
 </dt>
 <dd>
-<p>Hotkeys written to <code class="filename">$XDG_CONFIG_HOME/k9s/hotkey.yml</code>. See
+<p>Hotkeys written to <code class="filename">$XDG_CONFIG_HOME/k9s/hotkey.yaml</code>. See
 <a class="link" href="https://k9scli.io/topics/hotkeys/"  target="_top">https://k9scli.io/topics/hotkeys/</a> for supported values.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
@@ -25813,7 +25842,7 @@ YAML value</p>
  </span>
 </dt>
 <dd>
-<p>Plugins written to <code class="filename">$XDG_CONFIG_HOME/k9s/plugin.yml</code>. See
+<p>Plugins written to <code class="filename">$XDG_CONFIG_HOME/k9s/plugin.yaml</code>. See
 <a class="link" href="https://k9scli.io/topics/plugins/"  target="_top">https://k9scli.io/topics/plugins/</a> for supported values.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
@@ -25861,7 +25890,7 @@ YAML value</p>
  </span>
 </dt>
 <dd>
-<p>Configuration written to <code class="filename">$XDG_CONFIG_HOME/k9s/config.yml</code>. See
+<p>Configuration written to <code class="filename">$XDG_CONFIG_HOME/k9s/config.yaml</code>. See
 <a class="link" href="https://k9scli.io/topics/config/"  target="_top">https://k9scli.io/topics/config/</a> for supported values.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
@@ -25887,23 +25916,25 @@ YAML value</p>
 </dd>
 <dt>
  <span class="term">
- <a id="opt-programs.k9s.skin"></a><a class="term" href="options.xhtml#opt-programs.k9s.skin"><code class="option">programs.k9s.skin</code>
+ <a id="opt-programs.k9s.skins"></a><a class="term" href="options.xhtml#opt-programs.k9s.skins"><code class="option">programs.k9s.skins</code>
   </a>
  </span>
 </dt>
 <dd>
-<p>Skin written to <code class="filename">$XDG_CONFIG_HOME/k9s/skin.yml</code>. See
+<p>Skin files written to <code class="filename">$XDG_CONFIG_HOME/k9s/skins/</code>. See
 <a class="link" href="https://k9scli.io/topics/skins/"  target="_top">https://k9scli.io/topics/skins/</a> for supported values.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-YAML value</p>
+attribute set of (YAML value)</p>
 
 <p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p>
 
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">k9s = {
-  body = {
-    fgColor = &quot;dodgerblue&quot;;
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">my_blue_skin = {
+  k9s = {
+    body = {
+      fgColor = &quot;dodgerblue&quot;;
+    };
   };
 };
 
@@ -25925,7 +25956,7 @@ YAML value</p>
  </span>
 </dt>
 <dd>
-<p>Resource column views written to <code class="filename">$XDG_CONFIG_HOME/k9s/views.yml</code>.
+<p>Resource column views written to <code class="filename">$XDG_CONFIG_HOME/k9s/views.yaml</code>.
 See <a class="link" href="https://k9scli.io/topics/columns/"  target="_top">https://k9scli.io/topics/columns/</a> for supported values.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
@@ -30242,6 +30273,33 @@ unsigned integer, meaning &gt;=0</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.mcfly.fzf.enable"></a><a class="term" href="options.xhtml#opt-programs.mcfly.fzf.enable"><code class="option">programs.mcfly.fzf.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable McFly fzf integration.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mcfly.nix" target="_top">
+&lt;home-manager/modules/programs/mcfly.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.mcfly.keyScheme"></a><a class="term" href="options.xhtml#opt-programs.mcfly.keyScheme"><code class="option">programs.mcfly.keyScheme</code>
   </a>
  </span>
@@ -30522,6 +30580,205 @@ JSON value</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/micro.nix" target="_top">
 &lt;home-manager/modules/programs/micro.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.mise.enable"></a><a class="term" href="options.xhtml#opt-programs.mise.enable"><code class="option">programs.mise.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable mise.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mise.nix" target="_top">
+&lt;home-manager/modules/programs/mise.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.mise.enableBashIntegration"></a><a class="term" href="options.xhtml#opt-programs.mise.enableBashIntegration"><code class="option">programs.mise.enableBashIntegration</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Bash Integration.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mise.nix" target="_top">
+&lt;home-manager/modules/programs/mise.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.mise.enableFishIntegration"></a><a class="term" href="options.xhtml#opt-programs.mise.enableFishIntegration"><code class="option">programs.mise.enableFishIntegration</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Fish Integration.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mise.nix" target="_top">
+&lt;home-manager/modules/programs/mise.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.mise.enableZshIntegration"></a><a class="term" href="options.xhtml#opt-programs.mise.enableZshIntegration"><code class="option">programs.mise.enableZshIntegration</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Zsh Integration.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mise.nix" target="_top">
+&lt;home-manager/modules/programs/mise.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.mise.package"></a><a class="term" href="options.xhtml#opt-programs.mise.package"><code class="option">programs.mise.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The mise package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.mise</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mise.nix" target="_top">
+&lt;home-manager/modules/programs/mise.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.mise.globalConfig"></a><a class="term" href="options.xhtml#opt-programs.mise.globalConfig"><code class="option">programs.mise.globalConfig</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Config written to <code class="filename">$XDG_CONFIG_HOME/mise/config.toml</code>.</p><p>See <a class="link" href="https://mise.jdx.dev/configuration.html#global-config-config-mise-config-toml"  target="_top">https://mise.jdx.dev/configuration.html#global-config-config-mise-config-toml</a>
+for details on supported values.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+TOML value</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">tools = {
+  node = &quot;lts&quot;;
+  python = [&quot;3.10&quot; &quot;3.11&quot;];
+};
+
+aliases = {
+  my_custom_node = &quot;20&quot;;
+};
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mise.nix" target="_top">
+&lt;home-manager/modules/programs/mise.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.mise.settings"></a><a class="term" href="options.xhtml#opt-programs.mise.settings"><code class="option">programs.mise.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Settings written to <code class="filename">$XDG_CONFIG_HOME/mise/settings.toml</code>.</p><p>See <a class="link" href="https://mise.jdx.dev/configuration.html#settings-file-config-mise-settings-toml"  target="_top">https://mise.jdx.dev/configuration.html#settings-file-config-mise-settings-toml</a>
+for details on supported values.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+TOML value</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">verbose = false;
+experimental = false;
+disable_tools = [&quot;node&quot;];
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mise.nix" target="_top">
+&lt;home-manager/modules/programs/mise.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -38676,176 +38933,6 @@ strings concatenated with “\n”</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rtorrent.nix" target="_top">
 &lt;home-manager/modules/programs/rtorrent.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.rtx.enable"></a><a class="term" href="options.xhtml#opt-programs.rtx.enable"><code class="option">programs.rtx.enable</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Whether to enable RTX. Runtime Executor (asdf Rust clone).</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">false</code></p>
-
-<p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">true</code></p>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rtx.nix" target="_top">
-&lt;home-manager/modules/programs/rtx.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.rtx.enableBashIntegration"></a><a class="term" href="options.xhtml#opt-programs.rtx.enableBashIntegration"><code class="option">programs.rtx.enableBashIntegration</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Whether to enable Bash Integration.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">true</code></p>
-
-<p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">true</code></p>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rtx.nix" target="_top">
-&lt;home-manager/modules/programs/rtx.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.rtx.enableFishIntegration"></a><a class="term" href="options.xhtml#opt-programs.rtx.enableFishIntegration"><code class="option">programs.rtx.enableFishIntegration</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Whether to enable Fish Integration.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">true</code></p>
-
-<p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">true</code></p>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rtx.nix" target="_top">
-&lt;home-manager/modules/programs/rtx.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.rtx.enableZshIntegration"></a><a class="term" href="options.xhtml#opt-programs.rtx.enableZshIntegration"><code class="option">programs.rtx.enableZshIntegration</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Whether to enable Zsh Integration.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">true</code></p>
-
-<p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">true</code></p>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rtx.nix" target="_top">
-&lt;home-manager/modules/programs/rtx.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.rtx.package"></a><a class="term" href="options.xhtml#opt-programs.rtx.package"><code class="option">programs.rtx.package</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>The rtx package to use.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-package</p>
-
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">pkgs.rtx</code></p>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rtx.nix" target="_top">
-&lt;home-manager/modules/programs/rtx.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.rtx.settings"></a><a class="term" href="options.xhtml#opt-programs.rtx.settings"><code class="option">programs.rtx.settings</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Settings written to <code class="filename">$XDG_CONFIG_HOME/rtx/config.toml</code>.</p><p>See <a class="link" href="https://github.com/jdxcode/rtx#global-config-configrtxconfigtoml"  target="_top">https://github.com/jdxcode/rtx#global-config-configrtxconfigtoml</a>
-for details on supported values.</p><div class="warning"><h3 class="title">Warning</h3><p>Modifying the <code class="literal">tools</code> section doesn’t make RTX install them.
-You have to manually run <code class="literal">rtx install</code> to install the tools.</p></div>
-
-<p><span class="emphasis"><em>Type:</em></span>
-TOML value</p>
-
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">{ }</code></p>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">tools = {
-  node = &quot;lts&quot;;
-  python = [&quot;3.10&quot; &quot;3.11&quot;];
-};
-
-settings = {
-  verbose = false;
-  experimental = false;
-};
-
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rtx.nix" target="_top">
-&lt;home-manager/modules/programs/rtx.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -58333,33 +58420,6 @@ boolean</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/kdeconnect.nix" target="_top">
 &lt;home-manager/modules/services/kdeconnect.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-services.keepassx.enable"></a><a class="term" href="options.xhtml#opt-services.keepassx.enable"><code class="option">services.keepassx.enable</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Whether to enable the KeePassX password manager.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">false</code></p>
-
-<p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">true</code></p>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/keepassx.nix" target="_top">
-&lt;home-manager/modules/services/keepassx.nix&gt;
 </a></code>
 </td></tr>
 </table>
