@@ -7317,6 +7317,33 @@ strings concatenated with “\n”</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-gtk.gtk2.force"></a><a class="term" href="options.xhtml#opt-gtk.gtk2.force"><code class="option">gtk.gtk2.force</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable GTK 2 config force overwrite without creating a backup.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/gtk.nix" target="_top">
+&lt;home-manager/modules/misc/gtk.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-gtk.gtk3.bookmarks"></a><a class="term" href="options.xhtml#opt-gtk.gtk3.bookmarks"><code class="option">gtk.gtk3.bookmarks</code>
   </a>
  </span>
@@ -9272,7 +9299,7 @@ typically requires performing some manual steps, such as data
 conversion or moving files.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-one of “18.09”, “19.03”, “19.09”, “20.03”, “20.09”, “21.03”, “21.05”, “21.11”, “22.05”, “22.11”, “23.05”, “23.11”, “24.05”, “24.11”, “25.05”</p>
+one of “18.09”, “19.03”, “19.09”, “20.03”, “20.09”, “21.03”, “21.05”, “21.11”, “22.05”, “22.11”, “23.05”, “23.11”, “24.05”, “24.11”, “25.05”, “25.11”</p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -49074,6 +49101,95 @@ list of string</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.pgcli.enable"></a><a class="term" href="options.xhtml#opt-programs.pgcli.enable"><code class="option">programs.pgcli.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable pgcli.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/pgcli.nix" target="_top">
+&lt;home-manager/modules/programs/pgcli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.pgcli.package"></a><a class="term" href="options.xhtml#opt-programs.pgcli.package"><code class="option">programs.pgcli.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The pgcli package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.pgcli</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/pgcli.nix" target="_top">
+&lt;home-manager/modules/programs/pgcli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.pgcli.settings"></a><a class="term" href="options.xhtml#opt-programs.pgcli.settings"><code class="option">programs.pgcli.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration written to
+<code class="filename">$XDG_CONFIG_HOME/pgcli/config</code>.
+See <a class="link" href="https://www.pgcli.com/config"  target="_top">https://www.pgcli.com/config</a>
+for more information.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of section of an INI file (attrs of INI atom (null, bool, int, float or string))</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  main = {
+    smart_completion = true;
+    vi = true;
+  };
+
+  &quot;named queries&quot;.simple = &quot;select * from abc where a is not Null&quot;;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/pgcli.nix" target="_top">
+&lt;home-manager/modules/programs/pgcli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.pidgin.enable"></a><a class="term" href="options.xhtml#opt-programs.pidgin.enable"><code class="option">programs.pidgin.enable</code>
   </a>
  </span>
@@ -49953,6 +50069,100 @@ attribute set of section of an INI file (attrs of INI atom (null, bool, int, flo
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.ptyxis.enable"></a><a class="term" href="options.xhtml#opt-programs.ptyxis.enable"><code class="option">programs.ptyxis.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable ptyxis.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ptyxis.nix" target="_top">
+&lt;home-manager/modules/programs/ptyxis.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.ptyxis.package"></a><a class="term" href="options.xhtml#opt-programs.ptyxis.package"><code class="option">programs.ptyxis.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The ptyxis package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.ptyxis</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ptyxis.nix" target="_top">
+&lt;home-manager/modules/programs/ptyxis.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.ptyxis.palettes"></a><a class="term" href="options.xhtml#opt-programs.ptyxis.palettes"><code class="option">programs.ptyxis.palettes</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Written to <code class="filename">$XDG_CONFIG_HOME/org.gnome.Prompt/palettes/NAME.palette</code>.
+See <a class="link" href="https://gitlab.gnome.org/chergert/ptyxis/-/tree/main/data/palettes"  target="_top">https://gitlab.gnome.org/chergert/ptyxis/-/tree/main/data/palettes</a>
+for more information.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of ((attribute set of section of an INI file (attrs of INI atom (null, bool, int, float or string))) or absolute path or string)</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  myPalette = {
+    Palette.Name = &quot;My awesome theme&quot;;
+    Light = {
+      Foreground=&quot;#E2E2E3&quot;;
+      Background=&quot;#2C2E34&quot;;
+      Color0=&quot;#2C2E34&quot;;
+      Color1=&quot;#FC5D7C&quot;;
+      Color2=&quot;#9ED072&quot;;
+      Color3=&quot;#E7C664&quot;;
+      Color4=&quot;#F39660&quot;;
+    };
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ptyxis.nix" target="_top">
+&lt;home-manager/modules/programs/ptyxis.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.pubs.enable"></a><a class="term" href="options.xhtml#opt-programs.pubs.enable"><code class="option">programs.pubs.enable</code>
   </a>
  </span>
@@ -50711,6 +50921,44 @@ boolean</p>
 
 <p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/qutebrowser.nix" target="_top">
+&lt;home-manager/modules/programs/qutebrowser.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.qutebrowser.perDomainSettings"></a><a class="term" href="options.xhtml#opt-programs.qutebrowser.perDomainSettings"><code class="option">programs.qutebrowser.perDomainSettings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Options to set, as in <code class="literal">settings</code> but per domain.
+Refer to <code class="option">settings</code> for details.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of anything</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  &quot;zoom.us&quot; = {
+    content = {
+      autoplay = true;
+      media.audio_capture = true;
+      media.video_capture = true;
+    };
+  };
+  &quot;github.com&quot;.colors.webpage.darkmode.enabled = false;
+};
+
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -78080,7 +78328,7 @@ boolean</p>
 </dt>
 <dd>
 <p>The interval at which the Home Manager auto expire is run.</p><p>This value is passed to the systemd timer configuration
-as the <code class="literal">OnCalendar</code> option.</p><p>The format is described in <a class="link" href="https://www.freedesktop.org/software/systemd/man/systemd.time.html" target="_top"><span class="citerefentry"><span class="refentrytitle">systemd.time</span>(7)</span></a>.</p>
+as the <code class="literal">OnCalendar</code> option.</p><p>The format is described in <a class="link" href="https://www.freedesktop.org/software/systemd/man/systemd.time.html" target="_top"><span class="citerefentry"><span class="refentrytitle">systemd.time</span>(7)</span></a>.</p><p>On Darwin it must be one of: hourly, daily, weekly, monthly, semiannually, annually, which are implemented as defined in <a class="link" href="https://www.freedesktop.org/software/systemd/man/systemd.time.html" target="_top"><span class="citerefentry"><span class="refentrytitle">systemd.time</span>(7)</span></a>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 string</p>
